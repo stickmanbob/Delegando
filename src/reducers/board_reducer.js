@@ -1,10 +1,12 @@
 
-export default function boardReducer(state={},action){
+
+export default function boardReducer(state = {}, action) {
 
     Object.freeze(state);
 
-    switch(action.type){
+    console.log(state);
+    switch (action.type) {
         default:
-            return state; 
+            return state;
     }
 }

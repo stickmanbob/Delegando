@@ -4,42 +4,43 @@ import "./styles/index.css";
 import App from "./App";
 import configureStore from "./store/store";
 
+// TEST IMPORTS
+  import * as colActions from "./actions/column_actions";
+  import * as noteActions from "./actions/note_actions";
+//
+
+window.colActions = colActions;
+window.noteActions = noteActions; 
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Example State
+ 
+  // Initialize empty state
+  let preloadedstate = {
+    entities:{
+      boards:{ 
+        nextId: 1,
+      },
+      columns:{
+        
+        nextId: 1,
+      },
+      notes:{
+        nextId: 1,
+      }
+    }
+  }
 
-  // let preloadedstate = {
-  //   entities:{
-  //     boards:{
-  //       1: {
-  //         name: "test",
-  //         columnOrder: [2, 1, 3]
-  //       }
-  //     },
-  //     columns:{
-  //       1:{
-  //         noteOrder:[1,2]
-  //       },
-  //       2:{
-  //         noteOrder: [3]
-  //       },
-  //       3:{
-  //         noteOrder: []
-  //       }
-  //     },
-  //     notes:{
-  //       1:{},
-  //       2:{},
-  //       3:{}
-  //     }
-  //   }
-  // }
-  let store = configureStore();
+  //Create a store with the preloaded state
+  let store = configureStore(preloadedstate);
 
-  // window.store = store;
+  //TEST LINE
+    window.store = store;
+  //
+
   ReactDOM.render(
     <React.StrictMode>
       <App store={store} />
     </React.StrictMode>,
     document.getElementById("root")
   );
-});
+}); 
