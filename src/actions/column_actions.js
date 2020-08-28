@@ -2,7 +2,7 @@ export const RECEIVE_NOTE = "RECEIVE_NOTE";
 export const RECEIVE_NOTES = "RECEIVE_NOTES";
 export const REMOVE_NOTE = "REMOVE_NOTE";
 
-export const receiveNOTES = (notes) => ({
+export const receiveNotes = (notes) => ({
   type: RECEIVE_NOTES,
   notes,
 });
