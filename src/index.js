@@ -8,7 +8,7 @@ import configureStore from "./store/store";
 document.addEventListener("DOMContentLoaded",()=>{
 
   // Example State
-  
+
   // let preloadedstate = {
   //   entities:{
   //     boards:{
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   //   }
   // }
   let store = configureStore(); 
-  window.store = store; 
+  // window.store = store; 
 })
 
 ReactDOM.render(
