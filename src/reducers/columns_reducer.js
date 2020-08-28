@@ -1,29 +1,24 @@
-import {
-  RECEIVE_NOTES,
-  RECEIVE_NOTE,
-  REMOVE_NOTE,
-} from "../actions/column_actions";
+import { CREATE_COLUMN } from "../actions/column_actions"
 
-const columnsReducer = (state = {}, action) => {
-  Object.freeze(state);
-  let nextState = {};
+export default function columnsReducer(state={},action){
 
-  switch (action.type) {
-    case RECEIVE_NOTES:
-      action.notes.forEach((note) => {
-        nextState[note.id] = note;
-      });
-      return nextState;
-    case RECEIVE_NOTE:
-      const newNote = { [action.note.id]: action.note };
-      return Object.assign({}, state, newNote);
-    case REMOVE_NOTE:
-      nextState = Object.assign({}, state);
-      delete nextState[action.note.id];
-      return nextState;
-    default:
-      return state;
-  }
-};
+    Object.freeze(state);
+    
+    console.log(state); 
+    switch(action.type){
+        case CREATE_COLUMN:
+            // First, let's get the next availible object id
+            let id = state.nextId;
 
-export default columnsReducer;
+            //Duplicate the current state and add our new column object
+            return Object.assign(
+                {}, 
+                state, 
+                
+                {[id]: action.column}, // Our new object, namespaced under its new id
+                
+                {nextId:id+1}) //Increment the next availible id by 1
+        default:
+            return state; 
+    }
+}

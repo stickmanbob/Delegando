@@ -3,47 +3,44 @@ import ReactDOM from "react-dom";
 import "./styles/index.css";
 import App from "./App";
 import configureStore from "./store/store";
-import * as boardActions from "./actions/board_actions";
-document.addEventListener("DOMContentLoaded", () => {
-  // Example State
 
+// TEST IMPORTS
+  import * as colActions from "./actions/column_actions";
+  import * as noteActions from "./actions/note_actions";
+//
+
+window.colActions = colActions;
+window.noteActions = noteActions; 
+
+document.addEventListener("DOMContentLoaded", () => {
+ 
+  // Initialize empty state
   let preloadedstate = {
     entities:{
-      boards:{
-        1: {
-          name: "test",
-          columnOrder: [2, 1, 3]
-        },
-        currentId: 4
+      boards:{ 
+        nextId: 1,
       },
       columns:{
-        1:{
-          noteOrder:[1,2]
-        },
-        2:{
-          noteOrder: [3]
-        },
-        3:{
-          noteOrder: []
-        },
+        
+        nextId: 1,
       },
       notes:{
-        1:{},
-        2:{},
-        3:{}
+        nextId: 1,
       }
     }
   }
+
+  //Create a store with the preloaded state
   let store = configureStore(preloadedstate);
 
-  window.store = store;
+  //TEST LINE
+    window.store = store;
+  //
+
   ReactDOM.render(
     <React.StrictMode>
       <App store={store} />
     </React.StrictMode>,
     document.getElementById("root")
   );
-});
-
-
-window.boardActions = boardActions; 
+}); 

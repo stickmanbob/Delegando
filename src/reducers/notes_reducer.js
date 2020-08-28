@@ -1,10 +1,29 @@
+import {
+  CREATE_NOTE,
+  REMOVE_NOTE,
+} from "../actions/note_actions";
 
-export default function notesReducer(state = {}, action) {
+const notesReducer = (state = {}, action) => {
+  Object.freeze(state);
+  let nextState = {};
 
-    Object.freeze(state);
+  switch (action.type) {
+    
+    case CREATE_NOTE:
+      let id = state.nextId;
 
-    switch (action.type) {
-        default:
-            return state;
-    }
-}
+      const newNote = {[id]: action.note};
+
+      return Object.assign(nextState, state, newNote, {nextId: id+1});
+
+    case REMOVE_NOTE:
+      nextState = Object.assign({}, state);
+      delete nextState[action.id];
+      return nextState;
+
+    default:
+      return state;
+  }
+};
+
+export default notesReducer;
