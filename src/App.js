@@ -3,6 +3,7 @@ import logo from "./mintbean.png";
 import "./styles/index.css";
 import Column from "./components/column";
 import { Provider } from "react-redux";
+import NoteForm from "./components/NoteForm";
 
 function App({ store }) {
   return (
@@ -13,6 +14,7 @@ function App({ store }) {
           <code>App.js</code> is the entrypoint to your app.
         </p>
         <Column></Column>
+				<NoteForm></NoteForm>
         <h2>HAPPY HACKING!</h2>
         <a
           className="App-link"
