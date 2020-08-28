@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import React from "react";
 
+import Note from "./note";
 import { createNote, removeNote } from "../actions/note_actions";
 
 class Column extends React.Component {
@@ -17,10 +18,8 @@ class Column extends React.Component {
   render() {
     // debugger;
     const { notes } = this.props;
-    let realNotes = notes.forEach((note) => {
-      return <div>{note.title}</div>;
-    });
-    debugger;
+    let realNotes = notes.map((note) => <Note note={note}></Note>);
+    // debugger;
     return (
       <div>
 				<h2>{this.props.title}</h2>
