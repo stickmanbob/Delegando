@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import column from './column';
+import Column from './column';
 // import { createColumn } from '../actions/column_actions';
 
 class Board extends React.Component {
@@ -13,9 +13,7 @@ class Board extends React.Component {
         return (
             columns.map((col)=>{
                 return(
-                    <div>
-                        <h1>{col.title}</h1>
-                    </div>
+                   <Column title={col.title}/>
                 )
             })
         )
@@ -27,8 +25,12 @@ class Board extends React.Component {
         let columns = columnsIds.map((id)=> this.props.allColumns[id]);
 
         return(
-            <section>
-                {this.renderColumns(columns)}
+            <section class="board">
+
+							<div className="columns">
+								{this.renderColumns(columns)}
+							</div>
+                
             </section>
         )
     }

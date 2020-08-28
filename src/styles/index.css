@@ -1,21 +1,8 @@
+@import url("./note.css");
+@import url("./board.css");
+
 .App {
   font-family: sans-serif;
   text-align: center;
   margin: 6rem 0;
-}
-
-.create-note {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-}
-.create-form {
-	background-color: cornflowerblue;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 350px;
-	padding: 20px;
-	border: solid 1px black;
 }

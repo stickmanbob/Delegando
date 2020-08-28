@@ -23,6 +23,7 @@ class Column extends React.Component {
     debugger;
     return (
       <div>
+				<h2>{this.props.title}</h2>
         <ul>{realNotes}</ul>
         <button onClick={this.addNote}>Add Note</button>
       </div>
