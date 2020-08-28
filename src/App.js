@@ -1,16 +1,18 @@
-import React from 'react';
-import logo from './mintbean.png';
-import './styles/index.css';
+import React from "react";
+import logo from "./mintbean.png";
+import "./styles/index.css";
+import Column from "./components/column";
+import { Provider } from "react-redux";
 
-
-function App() {
-
+function App({ store }) {
   return (
-    <div className="App">
+    <Provider store={store}>
+      <div className="App">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           <code>App.js</code> is the entrypoint to your app.
         </p>
+        <Column></Column>
         <h2>HAPPY HACKING!</h2>
         <a
           className="App-link"
@@ -20,7 +22,8 @@ function App() {
         >
           Learn React
         </a>
-    </div>
+      </div>
+    </Provider>
   );
 }
 

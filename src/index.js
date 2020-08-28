@@ -1,12 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles/index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles/index.css";
+import App from "./App";
 import configureStore from "./store/store";
 
-
-document.addEventListener("DOMContentLoaded",()=>{
-
+document.addEventListener("DOMContentLoaded", () => {
   // Example State
 
   // let preloadedstate = {
@@ -26,7 +24,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   //       },
   //       3:{
   //         noteOrder: []
-  //       } 
+  //       }
   //     },
   //     notes:{
   //       1:{},
@@ -35,13 +33,13 @@ document.addEventListener("DOMContentLoaded",()=>{
   //     }
   //   }
   // }
-  let store = configureStore(); 
-  // window.store = store; 
-})
+  let store = configureStore();
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+  // window.store = store;
+  ReactDOM.render(
+    <React.StrictMode>
+      <App store={store} />
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+});
