@@ -4,8 +4,11 @@ import {
   REMOVE_COLUMN,
 } from "../actions/column_actions";
 
+import { CREATE_NOTE } from "../actions/note_actions";
+
 export default function columnsReducer(state = {}, action) {
   Object.freeze(state);
+  let column;
 
   switch (action.type) {
     case CREATE_COLUMN:
@@ -13,8 +16,8 @@ export default function columnsReducer(state = {}, action) {
       let id = state.nextId;
 
       // create our new column object
-      let column = Object.assign({}, action.column, { id: id });
-			
+      column = Object.assign({}, action.column, { id: id });
+
       //Duplicate the current state and add our new column object
       return Object.assign(
         {},
@@ -26,13 +29,19 @@ export default function columnsReducer(state = {}, action) {
       ); //Increment the next availible id by 1
 
     case UPDATE_COLUMN:
-			return Object.assign({}, state, { [action.column.id]: action.column });
-		
-		case REMOVE_COLUMN:
-			let newState = Object.assign({},state);
-			delete newState[action.columnId]
-			return newState; 
-			
+      return Object.assign({}, state, { [action.column.id]: action.column });
+
+    case REMOVE_COLUMN:
+      let newState = Object.assign({}, state);
+      delete newState[action.columnId];
+      return newState;
+    case CREATE_NOTE:
+      debugger;
+      column = state[action.column.id];
+      let newColumn = Object.assign({}, column, action.column);
+
+      return Object.assign({}, state, { [action.column.id]: newColumn });
+
     default:
       return state;
   }
