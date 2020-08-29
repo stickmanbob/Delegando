@@ -44,39 +44,31 @@ class NoteForm extends React.Component {
   }
 
   render() {
-    let createForm;
-    if (this.state.show === false) {
-      createForm = <div></div>;
-    } else {
-      createForm = (
-        <form className="create-form" onSubmit={this.handleSubmit}>
-          <label className="create-title">Title:</label>
-          <input
-            type="text"
-            value={this.state.title}
-            onChange={this.handleInput("title")}
-          />
+    let createForm = (
+      <form className="create-form" onSubmit={this.handleSubmit}>
+        {/* <label className="create-title">Title:</label> */}
+        <input
+          type="text"
+					value={this.state.title}
+					placeholder="Title..."
+          onChange={this.handleInput("title")}
+        />
 
-          <label className="create-description">Description:</label>
-          <textarea
-            className="create-ta"
-            cols="30"
-            rows="10"
-            value={this.state.description}
-            placeholder="Expand here..."
-            onChange={this.handleInput("description")}
-          ></textarea>
+        {/* <label className="create-description">Description:</label> */}
+        <textarea
+          className="create-ta"
+          cols="30"
+          rows="10"
+          value={this.state.description}
+          placeholder="Description here..."
+          onChange={this.handleInput("description")}
+        ></textarea>
 
-          <button className="create-submit">Create!</button>
-        </form>
-      );
-    }
-    return (
-      <div className="create-note">
-        <button onClick={this.handleClick}>Create Note</button>
-        {createForm}
-      </div>
+        <button className="create-submit">Create!</button>
+      </form>
     );
+
+    return <div className="create-note">{createForm}</div>;
   }
 }
 
