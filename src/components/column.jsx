@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import React from "react";
 
 import Note from "./note";
-import CreateNoteContainer from "./CreateNoteContainer";
+import CreateNoteContainer from "./create_note_container";
 import { createNote, removeNote } from "../actions/note_actions";
 import EditColumnForm from "./edit_column_form";
 
