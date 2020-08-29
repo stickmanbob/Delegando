@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import React from "react";
 
 import Note from "./note";
+import CreateNoteContainer from "./CreateNoteContainer";
 import { createNote, removeNote } from "../actions/note_actions";
 import EditColumnForm from "./edit_column_form";
 
@@ -17,13 +18,18 @@ class Column extends React.Component {
   }
 
   render() {
-    const { notes } = this.props;
-		let realNotes = notes.map((note) => <Note note={note}></Note>);
-		
+    const { notes, column } = this.props;
+    let realNotes = notes.map((note) => {
+      if (column.id === note.colId)
+        return <Note note={note} colId={column.id}></Note>;
+    });
+    // debugger;
     return (
       <div>
-				<h2>{this.props.title}</h2>
-				<EditColumnForm columnId={this.props.id}/>
+        <h2>{this.props.title}</h2>
+        <CreateNoteContainer colId={column.id} />
+
+        <EditColumnForm columnId={this.props.id} />
         <ul>{realNotes}</ul>
         <button onClick={this.addNote}>Add Note</button>
       </div>
@@ -32,8 +38,10 @@ class Column extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  // debugger;
   return {
     notes: Object.values(state.entities.notes),
+    column: state.entities.columns[ownProps.id],
   };
 };
 
