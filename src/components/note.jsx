@@ -1,11 +1,13 @@
 import React from "react";
+import { removeNote } from "../actions/note_actions";
+import { connect } from "react-redux";
 
 class Note extends React.Component {
   constructor(props) {
     super(props);
     this.state = { show: false };
-		this.handleClick = this.handleClick.bind(this);
-		this.handleDelete = this.handleDelete.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleClick() {
@@ -14,39 +16,47 @@ class Note extends React.Component {
     } else {
       this.setState({ show: false });
     }
-	}
-	
-	handleDelete() {
-		this.props.removeNote(this.props.note.id)
-	}
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+
+    this.props.removeNote(this.props.note.id);
+  }
 
   render() {
     let description;
 
     if (this.state.show === true) {
-      description = <p>{this.props.note.description}</p>;
+      description = (
+        <div>
+          <p>{this.props.note.description}</p>
+        </div>
+      );
     } else {
       description = <div></div>;
     }
     return (
-			<div className="note-item">
-				<div onClick={this.handleClick} className="note-display">
-					<h3 className="note-title">{this.props.note.title}</h3>
+      <div className="note-item">
+        <div onClick={this.handleClick} className="note-display">
+          <h3 className="note-title">{this.props.note.title}</h3>
 
-					{description}
-				</div>
-				<span onClick={this.handleDelete} className="delete-note">x</span>
-			</div>
+          {description}
+        </div>
+        <span onClick={this.handleDelete} className="delete-note">
+          x
+        </span>
+      </div>
     );
   }
 }
 
-// const mSTP = (state, ownProps) => {
-//   return {
+const mSTP = (state, ownProps) => {
+  return {};
+};
 
-// 	};
-// };
+const mDTP = (dispatch) => ({
+  removeNote: (id) => dispatch(removeNote(id)),
+});
 
-// const mDTP = (dispatch) => ({});
-
-export default Note;
+export default connect(mSTP, mDTP)(Note);
