@@ -35,17 +35,10 @@ class Column extends React.Component {
 
   renderNotes() {
     const { notes, column } = this.props;
-
+    // debugger;
     return notes.map((note, idx) => {
       if (column.id === note.colId)
-        return (
-          <Note
-            note={note}
-            removeNote={removeNote}
-            colId={column.id}
-            key={idx}
-          ></Note>
-        );
+        return <Note note={note} colId={column.id} key={idx}></Note>;
     });
   }
 
