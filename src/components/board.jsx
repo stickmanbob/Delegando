@@ -13,7 +13,7 @@ class Board extends React.Component {
 
   renderColumns(columns) {
     return columns.map((col, idx) => {
-      return <Column boardId={this.props.board.id} title={col.title} key={idx} id={col.id} />;
+      return <Column column={col} key={idx} boardId={this.props.board.id} />;
     });
   }
 
@@ -29,7 +29,7 @@ class Board extends React.Component {
 	}
 	
 	handleDragEnd(e) {
-
+		console.log(e); 
 	}
 
   render() {

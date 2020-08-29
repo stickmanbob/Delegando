@@ -47,10 +47,11 @@ class Column extends React.Component {
   }
 
   selectTitle() {
+		let self = this.props.column;
     if (this.state.showEdit) {
-      return <EditColumnForm columnId={this.props.id} hide={this.hideEdit} />;
+      return <EditColumnForm columnId={self.id} hide={this.hideEdit} />;
     } else {
-      return <h2 onClick={this.showEdit}>{this.props.title}</h2>;
+      return <h2 onClick={this.showEdit}>{self.title}</h2>;
     }
   }
 
@@ -92,7 +93,6 @@ class Column extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     notes: Object.values(state.entities.notes),
-    column: state.entities.columns[ownProps.id],
   };
 };
 
