@@ -3,6 +3,7 @@ import React from "react";
 
 import Note from "./note";
 import { createNote, removeNote } from "../actions/note_actions";
+import EditColumnForm from "./edit_column_form";
 
 class Column extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Column extends React.Component {
     return (
       <div>
 				<h2>{this.props.title}</h2>
+				<EditColumnForm columnId={this.props.id}/>
         <ul>{realNotes}</ul>
         <button onClick={this.addNote}>Add Note</button>
       </div>

@@ -15,7 +15,7 @@ class Board extends React.Component {
         return (
             columns.map((col,idx)=>{
                 return(
-                   <Column title={col.title} key={idx}/>
+                   <Column title={col.title} key={idx} id={col.id}/>
                 )
             })
         )
