@@ -59,10 +59,12 @@ class Column extends React.Component {
       <div>
         {title}
 
+
         <CreateNoteContainer colId={column.id} />
+  
 
         <ul>{this.renderNotes()}</ul>
-        <button onClick={this.addNote}>Add Note</button>
+
       </div>
     );
   }
