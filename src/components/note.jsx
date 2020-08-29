@@ -2,6 +2,7 @@ import React from "react";
 import { removeNote } from "../actions/note_actions";
 import { connect } from "react-redux";
 import EditNoteContainer from "./edit_note_container";
+import { Draggable } from "react-beautiful-dnd";
 
 class Note extends React.Component {
   constructor(props) {
@@ -58,19 +59,23 @@ class Note extends React.Component {
       editForm = <div></div>;
     }
     return (
-      <div className="note-item">
-        <div className="note-display">
-          <h3 className="note-title" onClick={this.handleClick}>
-            {this.props.note.title}
-          </h3>
+			<Draggable draggableId={String(this.props.note.id)} index={this.props.index}>
+				{ (provided)=>
+					<div className="note-item" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+						<div className="note-display">
+							<h3 className="note-title" onClick={this.handleClick}>
+								{this.props.note.title}
+							</h3>
 
-          {description}
-          {editForm}
-        </div>
-        <span onClick={this.handleDelete} className="delete-note">
-          x
-        </span>
-      </div>
+							{description}
+							{editForm}
+						</div>
+						<span onClick={this.handleDelete} className="delete-note">
+							x
+						</span>
+					</div>
+				}
+			</Draggable>
     );
   }
 }

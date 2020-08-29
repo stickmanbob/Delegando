@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Column from "./column";
 import { createColumn } from "../actions/column_actions";
+import { DragDropContext } from "react-beautiful-dnd";
 
 class Board extends React.Component {
   constructor(props) {
@@ -25,7 +26,11 @@ class Board extends React.Component {
 
 		columnIds.push(this.props.nextColId);
 		this.props.createColumn(newColumn,{columns:columnIds, id: this.props.board.id});
-  }
+	}
+	
+	handleDragEnd(e) {
+
+	}
 
   render() {
     let columnsIds = this.props.board.columns;
@@ -35,7 +40,11 @@ class Board extends React.Component {
       <section className="board">
 				<h1>{this.props.board.title}</h1>
         <button onClick={this.createColumn}>Add Column</button>
-        <div className="columns">{this.renderColumns(columns)}</div>
+				<DragDropContext
+					onDragEnd={this.handleDragEnd}
+				>
+        	<div className="columns">{this.renderColumns(columns)}</div>
+				</DragDropContext>
       </section>
     );
   }

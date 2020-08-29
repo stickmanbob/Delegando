@@ -36,7 +36,7 @@ export default function columnsReducer(state = {}, action) {
       delete newState[action.columnId];
       return newState;
     case CREATE_NOTE:
-      debugger;
+      
       column = state[action.column.id];
       let newColumn = Object.assign({}, column, action.column);
 

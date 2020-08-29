@@ -4,6 +4,8 @@ import Board from "./components/board";
 import { Provider } from "react-redux";
 import SaveButton from './components/save_button';
 
+
+
 export default class App extends React.Component{
 
 	render(){
@@ -12,7 +14,9 @@ export default class App extends React.Component{
 		return (
 			<Provider store={store}>
 				<SaveButton/>
-				<Board boardId={1} />
+				
+					<Board boardId={1} />
+				
 
 			</Provider>
 		);

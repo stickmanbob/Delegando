@@ -6,6 +6,7 @@ import CreateNoteContainer from "./create_note_container";
 import { createNote, removeNote } from "../actions/note_actions";
 import EditColumnForm from "./edit_column_form";
 import { deleteColumn } from "../actions/column_actions";
+import { Droppable } from "react-beautiful-dnd";
 
 class Column extends React.Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class Column extends React.Component {
 
     return notes.map((note, idx) => {
       if (column.id === note.colId)
-        return <Note note={note} colId={column.id} key={idx}></Note>;
+        return <Note note={note} colId={column.id} key={idx} index={idx}></Note>;
     });
   }
 
@@ -69,8 +70,15 @@ class Column extends React.Component {
         {title}
 				<button onClick = {this.deleteSelf}>Delete</button>
         <CreateNoteContainer colId={column.id} />
-
-        <ul>{this.renderNotes()}</ul>
+				<Droppable droppableId={String(column.id)}>
+					{ (provided)=>
+						<div className="notes-list" {...provided.droppableProps} ref={provided.innerRef} >
+							{provided.placeholder}
+							<ul>{this.renderNotes()}</ul>
+						</div>
+						
+					}		
+				</Droppable>
       </div>
     );
   }
