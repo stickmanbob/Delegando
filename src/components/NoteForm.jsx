@@ -34,7 +34,12 @@ class NoteForm extends React.Component {
       notes: noteIds,
       id: this.props.column.id,
     };
-
+    this.setState({
+      title: "",
+      description: "",
+      colId: this.props.colId,
+      show: false,
+    });
     this.props.createNote(this.state, col);
   }
 
