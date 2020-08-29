@@ -2,6 +2,7 @@ import React from "react";
 import { removeNote } from "../actions/note_actions";
 import { connect } from "react-redux";
 import EditNoteContainer from "./edit_note_container";
+import { Draggable } from "react-beautiful-dnd";
 
 class Note extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Note extends React.Component {
   handleDelete(e) {
     e.preventDefault();
 
-    this.props.removeNote(this.props.note.id);
+    this.props.removeNote(this.props.note.id, this.props.columnId);
   }
 
   render() {
@@ -47,7 +48,8 @@ class Note extends React.Component {
       );
     } else {
       description = <div></div>;
-    }
+		}
+		
     let editForm;
     if (this.state.showEdit === true) {
       editForm = (
@@ -69,10 +71,15 @@ class Note extends React.Component {
       );
     }
 
+    
     return (
-      <div className="note-item">
-        <div className="note-display">{editForm}</div>
-      </div>
+			<Draggable draggableId={String(this.props.note.id)} index={this.props.index}>
+				{ (provided)=>
+					<div className="note-item" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+						<div className="note-display">{editForm}</div>
+					</div>
+				}
+			</Draggable>
     );
   }
 }
@@ -82,7 +89,7 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = (dispatch) => ({
-  removeNote: (id) => dispatch(removeNote(id)),
+  removeNote: (noteId,columnId) => dispatch(removeNote(noteId,columnId)),
 });
 
 export default connect(mSTP, mDTP)(Note);

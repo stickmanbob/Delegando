@@ -30,7 +30,6 @@ class NoteForm extends React.Component {
     e.preventDefault();
     this.state.colId = this.props.column.id;
     let noteIds = Object.values(this.props.column.notes);
-
     noteIds.push(this.props.nextNoteId);
     let col = {
       notes: noteIds,

@@ -6,6 +6,7 @@ import CreateNoteContainer from "./create_note_container";
 import { createNote, removeNote } from "../actions/note_actions";
 import EditColumnForm from "./edit_column_form";
 import { deleteColumn } from "../actions/column_actions";
+import { Droppable } from "react-beautiful-dnd";
 
 class Column extends React.Component {
   constructor(props) {
@@ -37,19 +38,21 @@ class Column extends React.Component {
   }
 
   renderNotes() {
-    const { notes, column } = this.props;
+    let notes = this.props.column.notes;
 
-    return notes.map((note, idx) => {
-      if (column.id === note.colId)
-        return <Note note={note} colId={column.id} key={idx}></Note>;
-    });
+		return notes.map((noteId, idx) => {
+			let note = this.props.allNotes[noteId]
+     return (<Note note={note} key={note.id} columnId={this.props.column.id} index={idx}/>)
+		}
+		)
   }
 
   selectTitle() {
+		let self = this.props.column;
     if (this.state.showEdit) {
-      return <EditColumnForm columnId={this.props.id} hide={this.hideEdit} />;
+      return <EditColumnForm columnId={self.id} hide={this.hideEdit} />;
     } else {
-      return <h2 onClick={this.showEdit}>{this.props.title}</h2>;
+      return <h2 onClick={this.showEdit}>{self.title}</h2>;
     }
   }
 
@@ -76,8 +79,15 @@ class Column extends React.Component {
         {title}
 
         <CreateNoteContainer colId={column.id} />
-
-        <ul>{this.renderNotes()}</ul>
+				<Droppable droppableId={String(column.id)}>
+					{ (provided)=>
+						<div className="notes-list" {...provided.droppableProps} ref={provided.innerRef} >
+							{provided.placeholder}
+							<ul>{this.renderNotes()}</ul>
+						</div>
+						
+					}		
+				</Droppable>
       </div>
     );
   }
@@ -85,8 +95,7 @@ class Column extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    notes: Object.values(state.entities.notes),
-    column: state.entities.columns[ownProps.id],
+    allNotes: state.entities.notes,
   };
 };
 
