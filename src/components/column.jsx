@@ -9,12 +9,6 @@ import EditColumnForm from "./edit_column_form";
 class Column extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { title: "" };
-    this.addNote = this.addNote.bind(this);
-  }
-
-  addNote() {
-    this.props.createNote({ title: "demo" });
   }
 
   render() {
@@ -27,11 +21,10 @@ class Column extends React.Component {
     return (
       <div>
         <h2>{this.props.title}</h2>
+        <EditColumnForm columnId={this.props.id} />
         <CreateNoteContainer colId={column.id} />
 
-        <EditColumnForm columnId={this.props.id} />
         <ul>{realNotes}</ul>
-        <button onClick={this.addNote}>Add Note</button>
       </div>
     );
   }
