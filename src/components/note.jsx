@@ -6,7 +6,6 @@ class Note extends React.Component {
     super(props);
   }
   render() {
-    debugger;
     return <div>lol</div>;
   }
 }

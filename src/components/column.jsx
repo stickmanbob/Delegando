@@ -16,10 +16,9 @@ class Column extends React.Component {
   }
 
   render() {
-    // debugger;
     const { notes } = this.props;
-    let realNotes = notes.map((note) => <Note note={note}></Note>);
-    // debugger;
+		let realNotes = notes.map((note) => <Note note={note}></Note>);
+		
     return (
       <div>
 				<h2>{this.props.title}</h2>
@@ -31,7 +30,6 @@ class Column extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  //   debugger;
   return {
     notes: Object.values(state.entities.notes),
   };
