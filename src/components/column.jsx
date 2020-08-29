@@ -4,6 +4,7 @@ import React from "react";
 import Note from "./note";
 import CreateNoteContainer from "./CreateNoteContainer";
 import { createNote, removeNote } from "../actions/note_actions";
+import EditColumnForm from "./edit_column_form";
 
 class Column extends React.Component {
   constructor(props) {
@@ -27,6 +28,8 @@ class Column extends React.Component {
       <div>
         <h2>{this.props.title}</h2>
         <CreateNoteContainer colId={column.id} />
+
+        <EditColumnForm columnId={this.props.id} />
         <ul>{realNotes}</ul>
         <button onClick={this.addNote}>Add Note</button>
       </div>

@@ -1,4 +1,4 @@
-import { CREATE_COLUMN } from "../actions/column_actions"
+import { CREATE_COLUMN, UPDATE_COLUMN, REMOVE_COLUMN } from "../actions/column_actions"
 
 export default function columnsReducer(state={},action){
 
@@ -20,7 +20,10 @@ export default function columnsReducer(state={},action){
                 
                 {[id]: column}, // Our new object, namespaced under its new id
                 
-                {nextId:id+1}) //Increment the next availible id by 1
+								{nextId:id+1}) //Increment the next availible id by 1
+				
+				case UPDATE_COLUMN:
+						return Object.assign({},state,{[action.column.id]: action.column})
         default:
             return state; 
     }
