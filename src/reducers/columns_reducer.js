@@ -4,7 +4,7 @@ export default function columnsReducer(state={},action){
 
     Object.freeze(state);
     
-    console.log(state); 
+    
     switch(action.type){
         case CREATE_COLUMN:
             // First, let's get the next availible object id
