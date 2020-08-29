@@ -9,29 +9,66 @@ import EditColumnForm from "./edit_column_form";
 class Column extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showEdit: false,
+    };
+
+    this.showEdit = this.showEdit.bind(this);
+    this.hideEdit = this.hideEdit.bind(this);
+    this.renderNotes = this.renderNotes.bind(this);
+    this.selectTitle = this.selectTitle.bind(this);
+  }
+
+  showEdit(e) {
+    e.preventDefault();
+
+    this.setState({
+      showEdit: true,
+    });
+  }
+
+  hideEdit() {
+    this.setState({
+      showEdit: false,
+    });
+  }
+
+  renderNotes() {
+    const { notes, column } = this.props;
+
+    return notes.map((note, idx) => {
+      if (column.id === note.colId)
+        return <Note note={note} colId={column.id} key={idx}></Note>;
+    });
+  }
+
+  selectTitle() {
+    if (this.state.showEdit) {
+      return <EditColumnForm columnId={this.props.id} hide={this.hideEdit} />;
+    } else {
+      return <h2 onClick={this.showEdit}>{this.props.title}</h2>;
+    }
   }
 
   render() {
-    const { notes, column } = this.props;
-    let realNotes = notes.map((note) => {
-      if (column.id === note.colId)
-        return <Note note={note} colId={column.id}></Note>;
-    });
-    // debugger;
+    const { column } = this.props;
+
+    let title = this.selectTitle();
+
     return (
       <div>
-        <h2>{this.props.title}</h2>
-        <EditColumnForm columnId={this.props.id} />
+        {title}
+
         <CreateNoteContainer colId={column.id} />
 
-        <ul>{realNotes}</ul>
+        <ul>{this.renderNotes()}</ul>
+        <button onClick={this.addNote}>Add Note</button>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger;
   return {
     notes: Object.values(state.entities.notes),
     column: state.entities.columns[ownProps.id],
