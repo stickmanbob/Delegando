@@ -1,4 +1,4 @@
-import { CREATE_NOTE, REMOVE_NOTE } from "../actions/note_actions";
+import { CREATE_NOTE, REMOVE_NOTE, UPDATE_NOTE } from "../actions/note_actions";
 
 const notesReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -18,9 +18,9 @@ const notesReducer = (state = {}, action) => {
       nextState = Object.assign({}, state);
       delete nextState[action.id];
 
-
       return nextState;
-
+    case UPDATE_NOTE:
+      return Object.assign({}, state, { [action.note.id]: action.note });
     default:
       return state;
   }
