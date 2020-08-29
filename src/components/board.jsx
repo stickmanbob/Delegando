@@ -1,19 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 import Column from "./column";
-import { createColumn } from "../actions/column_actions";
+import { createColumn, updateColumn } from "../actions/column_actions";
 import { DragDropContext } from "react-beautiful-dnd";
 
 class Board extends React.Component {
   constructor(props) {
-    super(props);
-
-    this.createColumn = this.createColumn.bind(this);
+		super(props);
+		this.createColumn = this.createColumn.bind(this);
+		this.handleDragEnd = this.handleDragEnd.bind(this);
   }
 
   renderColumns(columns) {
-    return columns.map((col, idx) => {
-      return <Column column={col} key={idx} boardId={this.props.board.id} />;
+    return columns.map((col) => {
+      return <Column column={col} key={col.id} boardId={this.props.board.id} />;
     });
   }
 
@@ -28,8 +28,21 @@ class Board extends React.Component {
 		this.props.createColumn(newColumn,{columns:columnIds, id: this.props.board.id});
 	}
 	
-	handleDragEnd(e) {
-		console.log(e); 
+	handleDragEnd(result) {
+
+		if(!result.destination) return;
+		console.log(result); 
+		let columnId = Number(result.destination.droppableId);
+		let notes = this.props.allColumns[columnId].notes;
+		let startIdx = Number(result.source.index);
+		let endIdx = Number(result.destination.index);
+		let newNotes = Array.from(notes);
+		let noteId = Number(result.draggableId);
+
+		newNotes.splice(startIdx,1);
+		newNotes.splice(endIdx,0,noteId);
+		
+		this.props.updateColumn({id:columnId, notes:newNotes})
 	}
 
   render() {
@@ -60,7 +73,8 @@ function mSTP(state, ownProps) {
 
 function mDTP(dispatch) {
   return {
-    createColumn: (column,board) => dispatch(createColumn(column,board)),
+		createColumn: (column,board) => dispatch(createColumn(column,board)),
+		updateColumn: (column) => dispatch(updateColumn(column))
   };
 }
 

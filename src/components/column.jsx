@@ -38,12 +38,13 @@ class Column extends React.Component {
   }
 
   renderNotes() {
-    const { notes, column } = this.props;
+    let notes = this.props.column.notes;
 
-    return notes.map((note, idx) => {
-      if (column.id === note.colId)
-        return <Note note={note} colId={column.id} key={idx} index={idx}></Note>;
-    });
+		return notes.map((noteId, idx) => {
+			let note = this.props.allNotes[noteId]
+     return (<Note note={note} key={note.id} index={idx}/>)
+		}
+		)
   }
 
   selectTitle() {
@@ -92,7 +93,7 @@ class Column extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    notes: Object.values(state.entities.notes),
+    allNotes: state.entities.notes,
   };
 };
 
