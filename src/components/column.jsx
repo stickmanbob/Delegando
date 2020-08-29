@@ -54,6 +54,7 @@ class Column extends React.Component {
 	
 	deleteSelf(e){
 		e.preventDefault(); 
+		 console.log(this.props.column)
 		this.props.deleteColumn(this.props.column.id, this.props.boardId, this.props.column.notes);
 
 	}

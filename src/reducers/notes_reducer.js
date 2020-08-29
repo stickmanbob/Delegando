@@ -25,7 +25,7 @@ const notesReducer = (state = {}, action) => {
 		
 		case REMOVE_COLUMN:
 			let newState = Object.assign({},state);
-			action.nodeIds.forEach((noteId)=>{
+			action.noteIds.forEach((noteId)=>{
 				delete newState[noteId];
 			})
 			return newState; 

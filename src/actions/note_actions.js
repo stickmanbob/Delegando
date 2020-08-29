@@ -4,7 +4,7 @@ export const UPDATE_NOTE = "UPDATE_NOTE";
 // export const DELETE_COLUMN_NOTES = "DELETE_COLUMN_NOTES"
 
 export const createNote = (note, column) => {
-  debugger;
+  
   return {
     type: CREATE_NOTE,
     note: note,
