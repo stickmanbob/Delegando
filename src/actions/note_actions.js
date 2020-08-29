@@ -11,9 +11,10 @@ export const createNote = (note, column) => {
   };
 };
 
-export const removeNote = (id) => ({
+export const removeNote = (id,columnId) => ({
   type: REMOVE_NOTE,
-  id: id,
+	noteId: id,
+	columnId:columnId
 });
 
 // export const deleteColumnNotes = (noteIds) => {

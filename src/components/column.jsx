@@ -42,7 +42,7 @@ class Column extends React.Component {
 
 		return notes.map((noteId, idx) => {
 			let note = this.props.allNotes[noteId]
-     return (<Note note={note} key={note.id} index={idx}/>)
+     return (<Note note={note} key={note.id} columnId={this.props.column.id} index={idx}/>)
 		}
 		)
   }
@@ -73,9 +73,11 @@ class Column extends React.Component {
 
     return (
       <div className="column">
+        <div className="delete-col" onClick={this.deleteSelf}>
+          X
+        </div>
         {title}
 
-        <button onClick={this.deleteSelf}>Delete</button>
         <CreateNoteContainer colId={column.id} />
 				<Droppable droppableId={String(column.id)}>
 					{ (provided)=>

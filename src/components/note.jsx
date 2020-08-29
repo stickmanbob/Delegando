@@ -32,7 +32,7 @@ class Note extends React.Component {
   handleDelete(e) {
     e.preventDefault();
 
-    this.props.removeNote(this.props.note.id);
+    this.props.removeNote(this.props.note.id, this.props.columnId);
   }
 
   render() {
@@ -41,7 +41,9 @@ class Note extends React.Component {
     if (this.state.show === true) {
       description = (
         <div>
-          <p onClick={this.showEdit}>{this.props.note.description}</p>
+          <p className="note-des" onClick={this.showEdit}>
+            {this.props.note.description}
+          </p>
         </div>
       );
     } else {
@@ -55,26 +57,26 @@ class Note extends React.Component {
           <EditNoteContainer note={this.props.note} showEdit={this.showEdit} />
         </div>
       );
-		} else {
-			editForm = (
-				<div>
-					<h3 className="note-title" onClick={this.handleClick}>
-						{this.props.note.title}
-					</h3>
+    } else {
+      editForm = (
+        <div>
+          <div onClick={this.handleDelete} className="delete-note">
+            x
+          </div>
+          <h3 className="note-title" onClick={this.handleClick}>
+            {this.props.note.title}
+          </h3>
+          {description}
+        </div>
+      );
+    }
 
-					{description}
-				</div>
-			);
-		}
     
     return (
 			<Draggable draggableId={String(this.props.note.id)} index={this.props.index}>
 				{ (provided)=>
 					<div className="note-item" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
 						<div className="note-display">{editForm}</div>
-						<span onClick={this.handleDelete} className="delete-note">
-							x
-						</span>
 					</div>
 				}
 			</Draggable>
@@ -87,7 +89,7 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = (dispatch) => ({
-  removeNote: (id) => dispatch(removeNote(id)),
+  removeNote: (noteId,columnId) => dispatch(removeNote(noteId,columnId)),
 });
 
 export default connect(mSTP, mDTP)(Note);
