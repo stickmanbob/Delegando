@@ -32,6 +32,7 @@ class Board extends React.Component {
 
     return (
       <section className="board">
+				<h1>{this.props.board.title}</h1>
         <button onClick={this.createColumn}>Add Column</button>
         <div className="columns">{this.renderColumns(columns)}</div>
       </section>
