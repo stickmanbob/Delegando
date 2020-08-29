@@ -30,7 +30,7 @@ class Board extends React.Component {
   render() {
     let columnsIds = this.props.board.columns;
     let columns = columnsIds.map((id) => this.props.allColumns[id]);
-
+		
     return (
       <section className="board">
 				<h1>{this.props.board.title}</h1>

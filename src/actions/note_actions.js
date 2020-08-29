@@ -2,10 +2,14 @@ export const CREATE_NOTE = "CREATE_NOTE";
 export const REMOVE_NOTE = "REMOVE_NOTE";
 export const UPDATE_NOTE = "UPDATE_NOTE";
 
-export const createNote = (note) => ({
-  type: CREATE_NOTE,
-  note: note,
-});
+export const createNote = (note, column) => {
+  debugger;
+  return {
+    type: CREATE_NOTE,
+    note: note,
+    column: { notes: column.notes, id: column.id },
+  };
+};
 
 export const removeNote = (id) => ({
   type: REMOVE_NOTE,
