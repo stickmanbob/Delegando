@@ -17,13 +17,14 @@ class Board extends React.Component {
   }
 
   createColumn() {
+		let columnIds = Array.from(this.props.board.columns)
     let newColumn = {
       title: "New Column",
       notes: [],
     };
 
-    this.props.board.columns.push(this.props.nextColId);
-    this.props.createColumn(newColumn);
+		columnIds.push(this.props.nextColId);
+		this.props.createColumn(newColumn,{columns:columnIds, id: this.props.board.id});
   }
 
   render() {
@@ -42,15 +43,15 @@ class Board extends React.Component {
 
 function mSTP(state, ownProps) {
   return {
-    allColumns: state.entities.columns,
-    board: state.entities.boards[ownProps.boardId],
+    allColumns: Object.assign({},state.entities.columns),
+    board: Object.assign({},state.entities.boards[ownProps.boardId]),
     nextColId: state.entities.columns.nextId,
   };
 }
 
 function mDTP(dispatch) {
   return {
-    createColumn: (column) => dispatch(createColumn(column)),
+    createColumn: (column,board) => dispatch(createColumn(column,board)),
   };
 }
 

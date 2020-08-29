@@ -1,4 +1,4 @@
-
+import { CREATE_COLUMN } from "../actions/column_actions";
 
 export default function boardReducer(state = {}, action) {
 
@@ -6,6 +6,13 @@ export default function boardReducer(state = {}, action) {
 
     
     switch (action.type) {
+			
+			case CREATE_COLUMN:
+				const board = state[action.board.id];
+				let newBoard = Object.assign({},board,action.board);
+
+				return Object.assign({},state,{[action.board.id]: newBoard});
+
         default:
             return state;
     }

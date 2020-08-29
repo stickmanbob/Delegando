@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
 				boards: {
 					1: {
 						title: "My Board",
-						columns: []
+						columns: [],
+						id:1
 					},
 					nextId: 2,
 				},

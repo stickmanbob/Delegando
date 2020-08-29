@@ -1,7 +1,7 @@
 import React from "react";
 import { removeNote } from "../actions/note_actions";
 import { connect } from "react-redux";
-import EditNoteContainer from "./EditNoteContainer";
+import EditNoteContainer from "./edit_note_container";
 
 class Note extends React.Component {
   constructor(props) {
