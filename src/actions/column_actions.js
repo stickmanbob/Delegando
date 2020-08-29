@@ -27,10 +27,11 @@ export const updateColumn = (column) => {
 	}
 }
 
-export const deleteColumn = (columnId,boardId) => {
+export const deleteColumn = (columnId,boardId, noteIds) => {
 	return {
 		type: REMOVE_COLUMN,
 		columnId: columnId,
-		boardId: boardId
+		boardId: boardId,
+		noteIds: noteIds
 	}
 }

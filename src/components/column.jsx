@@ -54,7 +54,9 @@ class Column extends React.Component {
 	
 	deleteSelf(e){
 		e.preventDefault(); 
-		this.props.deleteColumn(this.props.column.id, this.props.boardId); 
+		 console.log(this.props.column)
+		this.props.deleteColumn(this.props.column.id, this.props.boardId, this.props.column.notes);
+
 	}
 
   render() {
@@ -84,7 +86,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
   removeNote: (note) => dispatch(removeNote(note)),
 	createNote: (note) => dispatch(createNote(note)),
-	deleteColumn: (columnId, boardId) => dispatch(deleteColumn(columnId,boardId)),
+	deleteColumn: (columnId, boardId, noteIds) => dispatch(deleteColumn(columnId,boardId,noteIds)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Column);

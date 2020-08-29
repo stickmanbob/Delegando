@@ -1,4 +1,5 @@
-import { CREATE_NOTE, REMOVE_NOTE, UPDATE_NOTE } from "../actions/note_actions";
+import { CREATE_NOTE, REMOVE_NOTE, UPDATE_NOTE,} from "../actions/note_actions";
+import { REMOVE_COLUMN } from "../actions/column_actions"
 
 const notesReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -20,7 +21,15 @@ const notesReducer = (state = {}, action) => {
 
       return nextState;
     case UPDATE_NOTE:
-      return Object.assign({}, state, { [action.note.id]: action.note });
+			return Object.assign({}, state, { [action.note.id]: action.note });
+		
+		case REMOVE_COLUMN:
+			let newState = Object.assign({},state);
+			action.noteIds.forEach((noteId)=>{
+				delete newState[noteId];
+			})
+			return newState; 
+
     default:
       return state;
   }
