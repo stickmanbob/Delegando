@@ -70,9 +70,11 @@ class Column extends React.Component {
 
     return (
       <div className="column">
+        <div className="delete-col" onClick={this.deleteSelf}>
+          X
+        </div>
         {title}
 
-        <button onClick={this.deleteSelf}>Delete</button>
         <CreateNoteContainer colId={column.id} />
 
         <ul>{this.renderNotes()}</ul>

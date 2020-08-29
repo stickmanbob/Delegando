@@ -79,7 +79,9 @@ class NoteForm extends React.Component {
 
     return (
       <div>
-        <button onClick={this.handleClick}>+</button>
+        <button className="add-note" onClick={this.handleClick}>
+          +
+        </button>
         <div className="create-note">{createForm}</div>
       </div>
     );
