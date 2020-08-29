@@ -15,8 +15,27 @@
   font-weight: 900;
   font-size: 17px;
   font-family: "Amatic SC", cursive;
+  margin: 4px;
+  border: none;
 }
 
 .create-form > textarea {
   font-family: "Amatic SC", cursive;
+  height: 50px;
+  margin: 4px;
+  border: none;
+}
+
+.delete-note {
+  position: relative;
+  left: 71px;
+  bottom: 76px;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+.note-item {
+  background: blanchedalmond;
+  border-radius: 9px;
+  margin: 13px;
 }

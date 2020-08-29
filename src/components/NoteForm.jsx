@@ -6,7 +6,7 @@ class NoteForm extends React.Component {
     this.state = {
       title: "",
       description: "",
-      colId: this.props.colId,
+      colId: this.props.column.id,
       show: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,7 +17,8 @@ class NoteForm extends React.Component {
     return (e) => this.setState({ [type]: e.currentTarget.value });
   }
 
-  handleClick() {
+  handleClick(e) {
+    e.preventDefault();
     if (this.state.show === false) {
       this.setState({ show: true });
     } else {
@@ -27,48 +28,61 @@ class NoteForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.state.colId = this.props.column.id;
     let noteIds = Object.values(this.props.column.notes);
-    // debugger;
+
     noteIds.push(this.props.nextNoteId);
     let col = {
       notes: noteIds,
       id: this.props.column.id,
     };
+
+    this.props.createNote(this.state, col);
     this.setState({
       title: "",
       description: "",
-      colId: this.props.colId,
+      colId: this.props.column.id,
       show: false,
     });
-    this.props.createNote(this.state, col);
   }
 
   render() {
-    let createForm = (
-      <form className="create-form" onSubmit={this.handleSubmit}>
-        {/* <label className="create-title">Title:</label> */}
-        <input
-          type="text"
-					value={this.state.title}
-					placeholder="Title..."
-          onChange={this.handleInput("title")}
-        />
+    let createForm;
 
-        {/* <label className="create-description">Description:</label> */}
-        <textarea
-          className="create-ta"
-          cols="30"
-          rows="10"
-          value={this.state.description}
-          placeholder="Description here..."
-          onChange={this.handleInput("description")}
-        ></textarea>
+    if (this.state.show === false) {
+      createForm = <div></div>;
+    } else {
+      createForm = (
+        <form className="create-form" onSubmit={this.handleSubmit}>
+          {/* <label className="create-title">Title:</label> */}
+          <input
+            type="text"
+            value={this.state.title}
+            placeholder="Title..."
+            onChange={this.handleInput("title")}
+          />
 
-        <button className="create-submit">Create!</button>
-      </form>
+          {/* <label className="create-description">Description:</label> */}
+          <textarea
+            className="create-ta"
+            cols="30"
+            rows="10"
+            value={this.state.description}
+            placeholder="Description here..."
+            onChange={this.handleInput("description")}
+          ></textarea>
+
+          <button className="create-submit">Create!</button>
+        </form>
+      );
+    }
+
+    return (
+      <div>
+        <button onClick={this.handleClick}>+</button>
+        <div className="create-note">{createForm}</div>
+      </div>
     );
-
-    return <div className="create-note">{createForm}</div>;
   }
 }
 
