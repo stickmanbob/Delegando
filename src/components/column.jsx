@@ -38,7 +38,14 @@ class Column extends React.Component {
 
     return notes.map((note, idx) => {
       if (column.id === note.colId)
-        return <Note note={note} removeNote={removeNot} colId={column.id} key={idx}></Note>;
+        return (
+          <Note
+            note={note}
+            removeNote={removeNote}
+            colId={column.id}
+            key={idx}
+          ></Note>
+        );
     });
   }
 
@@ -59,12 +66,9 @@ class Column extends React.Component {
       <div>
         {title}
 
-
         <CreateNoteContainer colId={column.id} />
-  
 
         <ul>{this.renderNotes()}</ul>
-
       </div>
     );
   }
