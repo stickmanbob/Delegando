@@ -5,6 +5,7 @@ import Note from "./note";
 import CreateNoteContainer from "./create_note_container";
 import { createNote, removeNote } from "../actions/note_actions";
 import EditColumnForm from "./edit_column_form";
+import { deleteColumn } from "../actions/column_actions";
 
 class Column extends React.Component {
   constructor(props) {
@@ -16,7 +17,8 @@ class Column extends React.Component {
     this.showEdit = this.showEdit.bind(this);
     this.hideEdit = this.hideEdit.bind(this);
     this.renderNotes = this.renderNotes.bind(this);
-    this.selectTitle = this.selectTitle.bind(this);
+		this.selectTitle = this.selectTitle.bind(this);
+		this.deleteSelf = this.deleteSelf.bind(this); 
   }
 
   showEdit(e) {
@@ -48,7 +50,12 @@ class Column extends React.Component {
     } else {
       return <h2 onClick={this.showEdit}>{this.props.title}</h2>;
     }
-  }
+	}
+	
+	deleteSelf(e){
+		e.preventDefault(); 
+		this.props.deleteColumn(this.props.column.id, this.props.boardId); 
+	}
 
   render() {
     const { column } = this.props;
@@ -58,7 +65,7 @@ class Column extends React.Component {
     return (
       <div>
         {title}
-
+				<button onClick = {this.deleteSelf}>Delete</button>
         <CreateNoteContainer colId={column.id} />
 
         <ul>{this.renderNotes()}</ul>
@@ -70,13 +77,14 @@ class Column extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     notes: Object.values(state.entities.notes),
-    column: state.entities.columns[ownProps.id],
+		column: state.entities.columns[ownProps.id],
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   removeNote: (note) => dispatch(removeNote(note)),
-  createNote: (note) => dispatch(createNote(note)),
+	createNote: (note) => dispatch(createNote(note)),
+	deleteColumn: (columnId, boardId) => dispatch(deleteColumn(columnId,boardId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Column);

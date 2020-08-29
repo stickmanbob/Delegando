@@ -12,7 +12,7 @@ class Board extends React.Component {
 
   renderColumns(columns) {
     return columns.map((col, idx) => {
-      return <Column title={col.title} key={idx} id={col.id} />;
+      return <Column boardId={this.props.board.id} title={col.title} key={idx} id={col.id} />;
     });
   }
 
