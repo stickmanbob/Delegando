@@ -1,51 +1,56 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import Column from './column';
-// import { createColumn } from '../actions/column_actions';
+import React from "react";
+import { connect } from "react-redux";
+import Column from "./column";
+import { createColumn } from "../actions/column_actions";
 
 class Board extends React.Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props){
-        super(props);
-    }
+    this.createColumn = this.createColumn.bind(this);
+  }
 
-    renderColumns(columns){
-        return (
-            columns.map((col)=>{
-                return(
-                   <Column title={col.title}/>
-                )
-            })
-        )
-    }
+  renderColumns(columns) {
+    return columns.map((col, idx) => {
+      return <Column title={col.title} key={idx} id={col.id} />;
+    });
+  }
 
+  createColumn() {
+    let newColumn = {
+      title: "New Column",
+      notes: [],
+    };
 
-    render(){
-        let columnsIds = this.props.board.columns;
-        let columns = columnsIds.map((id)=> this.props.allColumns[id]);
+    this.props.board.columns.push(this.props.nextColId);
+    this.props.createColumn(newColumn);
+  }
 
-        return(
-            <section class="board">
+  render() {
+    let columnsIds = this.props.board.columns;
+    let columns = columnsIds.map((id) => this.props.allColumns[id]);
 
-							<div className="columns">
-								{this.renderColumns(columns)}
-							</div>
-                
-            </section>
-        )
-    }
+    return (
+      <section className="board">
+        <button onClick={this.createColumn}>Add Column</button>
+        <div className="columns">{this.renderColumns(columns)}</div>
+      </section>
+    );
+  }
 }
 
-function mSTP(state,ownProps){
-    return {
-        allColumns: state.entities.columns,
-        board: state.entities.boards[ownProps.boardId],
-        nextColId: state.entities.columns.nextId 
-    }
+function mSTP(state, ownProps) {
+  return {
+    allColumns: state.entities.columns,
+    board: state.entities.boards[ownProps.boardId],
+    nextColId: state.entities.columns.nextId,
+  };
 }
 
-// function mDTP(dispatch){
-//     createColumn: (column) => dispatch(createColumn(column));
-// }
+function mDTP(dispatch) {
+  return {
+    createColumn: (column) => dispatch(createColumn(column)),
+  };
+}
 
-export default connect (mSTP,null)(Board);
+export default connect(mSTP, mDTP)(Board);

@@ -20,20 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
       boards:{ 
         1:{
           title: "My Board",
-          columns:[1,2,3]
+          columns:[]
         },
         nextId: 2,
       },
       columns:{
-        1:{
-          title:"Column 1"
-        },
-        2: {
-          title: "Column 2"
-        },
-        3: {
-          title: "Column 3"
-        },
         nextId: 1,
       },
       notes:{
