@@ -1,12 +1,15 @@
 import { connect } from "react-redux";
-import NoteForm from "./NoteForm";
+import EditNoteForm from "./edit_note_form";
+import { updateNote } from "../actions/note_actions";
 
 const mSTP = (state, ownProps) => {
-  return {};
+  return {
+    note: state.entities.notes[ownProps.note.id],
+  };
 };
-  
+
 const mDTP = (dispatch) => ({
-	updateNote: (note) => dispatch(updateNote(note))
+  updateNote: (note) => dispatch(updateNote(note)),
 });
 
-export default connect(mSTP, mDTP)(NoteForm);
+export default connect(mSTP, mDTP)(EditNoteForm);
