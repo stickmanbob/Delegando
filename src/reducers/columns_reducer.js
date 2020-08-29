@@ -8,14 +8,17 @@ export default function columnsReducer(state={},action){
     switch(action.type){
         case CREATE_COLUMN:
             // First, let's get the next availible object id
-            let id = state.nextId;
+						let id = state.nextId;
+						
+						// create our new column object
+						let column = Object.assign({},action.column,{id:id});
 
             //Duplicate the current state and add our new column object
             return Object.assign(
                 {}, 
                 state, 
                 
-                {[id]: action.column}, // Our new object, namespaced under its new id
+                {[id]: column}, // Our new object, namespaced under its new id
                 
                 {nextId:id+1}) //Increment the next availible id by 1
         default:

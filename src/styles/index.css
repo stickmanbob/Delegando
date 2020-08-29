@@ -1,5 +1,6 @@
 @import url("./note.css");
 @import url("./board.css");
+@import url("./modal.css");
 
 .App {
   font-family: sans-serif;

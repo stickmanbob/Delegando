@@ -1,32 +1,43 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Column from './column';
-// import { createColumn } from '../actions/column_actions';
+import { createColumn } from '../actions/column_actions';
 
 class Board extends React.Component {
 
     constructor(props){
-        super(props);
+				super(props);
+				
+				this.createColumn = this.createColumn.bind(this);
     }
 
     renderColumns(columns){
         return (
-            columns.map((col)=>{
+            columns.map((col,idx)=>{
                 return(
-                   <Column title={col.title}/>
+                   <Column title={col.title} key={idx}/>
                 )
             })
         )
-    }
+		}
+		
+		createColumn(){
+			let newColumn = {
+				title: "New Column",
+				notes: []
+			}
 
+			this.props.board.columns.push(this.props.nextColId);
+			this.props.createColumn(newColumn); 
+		}
 
     render(){
         let columnsIds = this.props.board.columns;
         let columns = columnsIds.map((id)=> this.props.allColumns[id]);
 
         return(
-            <section class="board">
-
+            <section className="board">
+							<button onClick={this.createColumn}>Add Column</button>
 							<div className="columns">
 								{this.renderColumns(columns)}
 							</div>
@@ -44,8 +55,10 @@ function mSTP(state,ownProps){
     }
 }
 
-// function mDTP(dispatch){
-//     createColumn: (column) => dispatch(createColumn(column));
-// }
+function mDTP(dispatch){
+	return {
+		createColumn: (column) => dispatch(createColumn(column)),
+	}
+}
 
-export default connect (mSTP,null)(Board);
+export default connect (mSTP,mDTP)(Board);
