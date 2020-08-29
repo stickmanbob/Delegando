@@ -1,9 +1,19 @@
 @import url("./note.css");
 @import url("./board.css");
 @import url("./modal.css");
+@import url("./column.css");
 
 .App {
-  font-family: sans-serif;
+  font-family: "Amatic SC", cursive;
   text-align: center;
   margin: 6rem 0;
+}
+
+body {
+  font-family: "Amatic SC", cursive;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }

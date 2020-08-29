@@ -13,13 +13,14 @@ class Column extends React.Component {
     super(props);
     this.state = {
       showEdit: false,
+      showNoteEdit: false,
     };
 
     this.showEdit = this.showEdit.bind(this);
     this.hideEdit = this.hideEdit.bind(this);
     this.renderNotes = this.renderNotes.bind(this);
-		this.selectTitle = this.selectTitle.bind(this);
-		this.deleteSelf = this.deleteSelf.bind(this); 
+    this.selectTitle = this.selectTitle.bind(this);
+    this.deleteSelf = this.deleteSelf.bind(this);
   }
 
   showEdit(e) {
@@ -51,14 +52,17 @@ class Column extends React.Component {
     } else {
       return <h2 onClick={this.showEdit}>{this.props.title}</h2>;
     }
-	}
-	
-	deleteSelf(e){
-		e.preventDefault(); 
-		 console.log(this.props.column)
-		this.props.deleteColumn(this.props.column.id, this.props.boardId, this.props.column.notes);
+  }
 
-	}
+  deleteSelf(e) {
+    e.preventDefault();
+    console.log(this.props.column);
+    this.props.deleteColumn(
+      this.props.column.id,
+      this.props.boardId,
+      this.props.column.notes
+    );
+  }
 
   render() {
     const { column } = this.props;
@@ -66,9 +70,10 @@ class Column extends React.Component {
     let title = this.selectTitle();
 
     return (
-      <div>
+      <div className="column">
         {title}
-				<button onClick = {this.deleteSelf}>Delete</button>
+
+        <button onClick={this.deleteSelf}>Delete</button>
         <CreateNoteContainer colId={column.id} />
 				<Droppable droppableId={String(column.id)}>
 					{ (provided)=>
@@ -87,14 +92,15 @@ class Column extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     notes: Object.values(state.entities.notes),
-		column: state.entities.columns[ownProps.id],
+    column: state.entities.columns[ownProps.id],
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   removeNote: (note) => dispatch(removeNote(note)),
-	createNote: (note) => dispatch(createNote(note)),
-	deleteColumn: (columnId, boardId, noteIds) => dispatch(deleteColumn(columnId,boardId,noteIds)),
+  createNote: (note) => dispatch(createNote(note)),
+  deleteColumn: (columnId, boardId, noteIds) =>
+    dispatch(deleteColumn(columnId, boardId, noteIds)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Column);

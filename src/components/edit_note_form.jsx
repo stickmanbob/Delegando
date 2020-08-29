@@ -14,12 +14,11 @@ class EditNoteForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-		this.props.updateNote(this.state);
-		
+    this.props.updateNote(this.state);
+    this.props.showEdit();
   }
 
   render() {
-    // debugger;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
