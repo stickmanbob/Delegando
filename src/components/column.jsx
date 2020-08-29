@@ -22,7 +22,7 @@ class Column extends React.Component {
     // debugger;
     return (
       <div>
-				<h2>{this.props.title}</h2>
+        <h2>{this.props.title}</h2>
         <ul>{realNotes}</ul>
         <button onClick={this.addNote}>Add Note</button>
       </div>
@@ -31,9 +31,10 @@ class Column extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  //   debugger;
+  debugger;
   return {
     notes: Object.values(state.entities.notes),
+    column: state.entities.columns,
   };
 };
 
