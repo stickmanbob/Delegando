@@ -14,7 +14,7 @@ export default function columnsReducer(state = {}, action) {
 
       // create our new column object
       let column = Object.assign({}, action.column, { id: id });
-
+			
       //Duplicate the current state and add our new column object
       return Object.assign(
         {},

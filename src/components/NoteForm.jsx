@@ -27,6 +27,9 @@ class NoteForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    let noteIds = Object.values(this.props.column.notes);
+    debugger;
+    noteIds.push(this.props.nextNoteId);
     this.props.createNote(this.state);
   }
 
