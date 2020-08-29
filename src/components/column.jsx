@@ -7,7 +7,6 @@ import { createNote, removeNote } from "../actions/note_actions";
 import EditColumnForm from "./edit_column_form";
 import { deleteColumn } from "../actions/column_actions";
 
-
 class Column extends React.Component {
   constructor(props) {
     super(props);
@@ -70,8 +69,9 @@ class Column extends React.Component {
     let title = this.selectTitle();
 
     return (
-      <div>
+      <div className="column">
         {title}
+
         <button onClick={this.deleteSelf}>Delete</button>
         <CreateNoteContainer colId={column.id} />
 
