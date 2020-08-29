@@ -26,7 +26,13 @@ export default function columnsReducer(state = {}, action) {
       ); //Increment the next availible id by 1
 
     case UPDATE_COLUMN:
-      return Object.assign({}, state, { [action.column.id]: action.column });
+			return Object.assign({}, state, { [action.column.id]: action.column });
+		
+		case REMOVE_COLUMN:
+			let newState = Object.assign({},state);
+			delete newState[action.columnId]
+			return newState; 
+			
     default:
       return state;
   }
