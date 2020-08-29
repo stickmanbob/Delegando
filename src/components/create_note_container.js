@@ -11,7 +11,7 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = (dispatch) => ({
-  createNote: (note) => dispatch(createNote(note)),
+  createNote: (note, col) => dispatch(createNote(note, col)),
 });
 
 export default connect(mSTP, mDTP)(NoteForm);
