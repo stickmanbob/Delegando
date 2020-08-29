@@ -38,7 +38,7 @@ class Column extends React.Component {
 
     return notes.map((note, idx) => {
       if (column.id === note.colId)
-        return <Note note={note} colId={column.id} key={idx}></Note>;
+        return <Note note={note} removeNote={removeNot} colId={column.id} key={idx}></Note>;
     });
   }
 
