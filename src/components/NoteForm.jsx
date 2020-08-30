@@ -8,10 +8,31 @@ class NoteForm extends React.Component {
       description: "",
       colId: this.props.column.id,
       show: false,
-    };
+		};
+		
+		this.createFormRef = React.createRef();
+
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
+		this.handleClick = this.handleClick.bind(this);
+		this.handleOuterClick = this.handleOuterClick.bind(this);
+	}
+	
+	componentDidMount(){
+		document.addEventListener("mousedown", this.handleOuterClick, false);
+	}
+
+	componentWillUnmount(){
+		document.removeEventListener("mousedown", this.handleOuterClick, false);
+	}
+
+	handleOuterClick(e){
+		if (!this.createFormRef.current) return;
+		if (!this.createFormRef.current.contains(e.target)) {
+			this.setState({
+				show: false 
+			})
+		}
+	}
 
   handleInput(type) {
     return (e) => this.setState({ [type]: e.currentTarget.value });
@@ -28,7 +49,6 @@ class NoteForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({colId: this.props.column.id})
     let noteIds = Object.values(this.props.column.notes);
     noteIds.push(this.props.nextNoteId);
     let col = {
@@ -42,7 +62,8 @@ class NoteForm extends React.Component {
       description: "",
       colId: this.props.column.id,
       show: false,
-    });
+		});
+		
   }
 
   render() {
@@ -52,7 +73,7 @@ class NoteForm extends React.Component {
       createForm = <div></div>;
     } else {
       createForm = (
-        <form className="create-form" onSubmit={this.handleSubmit}>
+        <form className="create-form" ref={this.createFormRef} onSubmit={this.handleSubmit}>
           {/* <label className="create-title">Title:</label> */}
           <input
             type="text"
@@ -78,9 +99,10 @@ class NoteForm extends React.Component {
 
     return (
       <div>
-        <button className="add-note" onClick={this.handleClick}>
+        { !(this.state.show) && <button className="add-note" onClick={this.handleClick}>
           +
         </button>
+	}
         <div className="create-note">{createForm}</div>
       </div>
     );

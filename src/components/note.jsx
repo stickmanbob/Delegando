@@ -63,7 +63,7 @@ class Note extends React.Component {
       );
     } else {
       editForm = (
-        <div class="note-heading">
+        <div className="note-heading">
           <div onClick={this.handleDelete} className="delete-note">
             x
           </div>
