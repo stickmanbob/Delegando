@@ -3,8 +3,8 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-	background-image: linear-gradient(to bottom, blanchedalmond, burlywood);
-	border-radius: 9px;
+  background-image: linear-gradient(to bottom, blanchedalmond, burlywood);
+  border-radius: 9px;
 }
 .create-form {
   display: flex;
@@ -25,7 +25,7 @@
 }
 
 .create-form > textarea {
-	display: flex;
+  display: flex;
   font-family: "Amatic SC", cursive;
   height: 50px;
   margin: 0px;
@@ -37,45 +37,44 @@
 }
 
 .render-description {
-	display: flex;
-	flex-wrap: wrap;
-	max-width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80%;
 }
 
-.note-heading{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 5px 0px 8px 0px;
+.note-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 0px 8px 0px;
 }
 
 .note-title {
-	display: flex;
-	flex-direction: column;
-	word-wrap: break-word;
-	/* max-width: 80%; */
-	cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  /* max-width: 80%; */
+  cursor: pointer;
 }
 
-.note-title:hover{
-	color: rgb(89, 100, 110);
+.note-title:hover {
+  color: rgb(89, 100, 110);
 }
 
 .delete-note {
-	align-self: flex-end;
+  align-self: flex-end;
   font-family: sans-serif;
   cursor: pointer;
   display: inline;
 }
 
 .note-item {
-	background-image: linear-gradient(to bottom, blanchedalmond, burlywood);
+  background-image: linear-gradient(to bottom, blanchedalmond, burlywood);
   border-radius: 9px;
-  margin: 10px 0px; 
-	font-weight: 900;
-	padding: 0px 10px;
+  margin: 10px 0px;
+  font-weight: 900;
+  padding: 0px 10px;
   border-radius: 9px;
-
 }
 
 .note-title {
@@ -84,29 +83,64 @@
   margin-right: 10px;
   margin-bottom: 0;
   margin-top: 1px;
-	font-size: 30px;
-	text-align: center;
+  font-size: 30px;
+  text-align: center;
 }
 
 .note-des {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
-.note-des p{
-	word-wrap: break-word;
-	margin-top: 10px;
-	font-size: 22px;
-	
+.note-des p {
+  word-wrap: break-word;
+  margin-top: 10px;
+  font-size: 22px;
 }
 
 .add-note {
-	font-size: 30px;
+  font-size: 30px;
   margin: 0;
   padding: 0;
   border: none;
   background: none;
   font-family: sans-serif;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 0px 8px 0px;
+}
+
+.edit-form > div > input {
+  background: none;
+
+  border-radius: 10px;
+  font-family: inherit;
+  word-wrap: break-word;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  margin-top: 1px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.edit-form > div > textarea {
+  background: none;
+  font-family: inherit;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+.edit-form > div > button {
+  text-align: center;
 }
