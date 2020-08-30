@@ -1,3 +1,17 @@
 .board .columns{
 	display: flex;
+	height: 100%;
+}
+
+.board {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 90vh;
+}
+
+.board > h1 {
+	box-shadow: black;
+	padding: 8px;
 }
