@@ -1,108 +1,102 @@
 .landing-one {
-		height: 600px;
-		text-align: center;
-		font-size: 50px;
-		background-image: linear-gradient(to bottom, #9EB7E5, #C7EFCF);
-		border-bottom: 1px solid grey;
+  height: 600px;
+  text-align: center;
+  font-size: 50px;
+  background-image: linear-gradient(to bottom, #9eb7e5, #c7efcf);
+  border-bottom: 1px solid grey;
 }
 
 .landing-one > h3 {
-	padding-top: 50px;
+  padding-top: 50px;
 }
 
 .landing-one > img {
-	height: 380px;
-    border-radius: 10px;
-    position: relative;
-		left: 58px;
-		top: 26px;
-    border: 1px solid grey;
+  height: 380px;
+  border-radius: 10px;
+  position: relative;
+  left: 58px;
+  top: 26px;
+  border: 1px solid grey;
 }
 
 .landing-two {
-		min-height: 150px;
-    text-align: center;
-    font-size: 50px;
-		padding: 50px;
-		border-bottom: 1px solid grey;
-
+  min-height: 150px;
+  text-align: center;
+  font-size: 50px;
+  padding: 50px;
+  border-bottom: 1px solid grey;
 }
 
 .landing-two > p {
-	font-size: 35px;
-	padding: 15px;
+  font-size: 35px;
+  padding: 15px;
 }
 
 .landing-two > h2 {
-	padding-bottom: 28px;
+  padding-bottom: 28px;
 }
 
 .landing-one > a {
-	color: inherit;
-	text-decoration: none;
-	margin: 10px;
-	font-size: 35px;
-	position: relative;
-    top: 100px;
-		right: 242px;
-	}
-
-.landing-one > a:hover {
-	color: #9EB7E5
+  color: inherit;
+  text-decoration: none;
+  margin: 10px;
+  font-size: 35px;
+  position: relative;
+  top: 100px;
+  right: 242px;
 }
 
-
-
-
+.landing-one > a:hover {
+  color: #9eb7e5;
+}
 
 .landing-three {
-	min-height: 400px;
-	font-size: 35px;
-	padding: 25px;
-	
+  min-height: 400px;
+  font-size: 35px;
+  padding: 25px;
+  background: rgb(250 226 169 / 74%);
 }
 
 .landing-three > h2 {
-	padding-bottom: 20px;
-	margin-left: 20px;
-	font-size: 61px;
+  padding-bottom: 20px;
+  margin-left: 20px;
+  font-size: 61px;
+  text-align: center;
 }
 
-
 .landing-three > div {
-	display: flex;
+  display: flex;
 }
 
 .landing-three > div > p > h3 {
-	padding-bottom: 25px;
-	font-size: 35px;
+  padding-bottom: 25px;
+  font-size: 35px;
 }
 
 .landing-three > div > p {
-	margin: 15px;
-	font-size: 35px;
-	    background: aliceblue;
-    border-radius: 10px;
-    padding: 30px;
+  margin: 15px;
+  font-size: 30px;
+  background: aliceblue;
+  border-radius: 10px;
+  padding: 30px;
 }
 
-
 .nav-bar {
-	display: flex;
-	box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+  display: flex;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .nav-bar > h1 {
-	font-size: 30px;
-	padding: 15px;
+  font-size: 30px;
+  padding: 15px;
 }
 
 .nav-bar > h2 {
-	font-size: 20px;
-	padding: 20px;
-	margin-left: 30px;
+  font-size: 20px;
+  padding: 20px;
+  margin-left: 30px;
 }
 
 .nav-bar a:hover {
-		color: #9EB7E5
+  color: #9eb7e5;
 }
