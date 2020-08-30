@@ -21,20 +21,22 @@ class EditNoteForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Title:</label>
-          <input
-            type="text"
-            value={this.state.title}
-            onChange={this.handleInput("title")}
-          />
-
-          <label>Description:</label>
-          <textarea
-            value={this.state.description}
-            onChange={this.handleInput("description")}
-          ></textarea>
-
+        <form className="edit-form" onSubmit={this.handleSubmit}>
+          <div>
+            <input
+              type="text"
+              value={this.state.title}
+              onChange={this.handleInput("title")}
+              placeholder="Title"
+            />
+          </div>
+          <div>
+            <textarea
+              value={this.state.description}
+              onChange={this.handleInput("description")}
+              placeholder="Description..."
+            ></textarea>
+          </div>
           <button>Update</button>
         </form>
       </div>
