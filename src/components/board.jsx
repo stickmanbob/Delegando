@@ -29,20 +29,43 @@ class Board extends React.Component {
 	}
 	
 	handleDragEnd(result) {
-
+		let allColumns = this.props.allColumns
 		if(!result.destination) return;
 		console.log(result); 
-		let columnId = Number(result.destination.droppableId);
-		let notes = this.props.allColumns[columnId].notes;
+
 		let startIdx = Number(result.source.index);
 		let endIdx = Number(result.destination.index);
-		let newNotes = Array.from(notes);
 		let noteId = Number(result.draggableId);
 
-		newNotes.splice(startIdx,1);
-		newNotes.splice(endIdx,0,noteId);
+		if(result.source.droppableId === result.destination.droppableId){ //If dropping in the same column
+			let columnId = Number(result.destination.droppableId);
+			let notes = allColumns[columnId].notes;
+			let newNotes = Array.from(notes);
+
+			//Move the note in the source column
+			newNotes.splice(startIdx, 1);
+			newNotes.splice(endIdx, 0, noteId);
+
+			//Update Redux with our new board state
+			this.props.updateColumn({ id: columnId, notes: newNotes })
+
+		}else{ // if moving columns
+			let sourceColumn = Number(result.source.droppableId);
+			let destColumn = Number(result.destination.droppableId);
+			let sourceNotes = allColumns[sourceColumn].notes;
+			let destNotes = allColumns[destColumn].notes;
+
+			//Remove the Note from the source column
+			sourceNotes.splice(startIdx,1);
+
+			//Add the Note to the destination column
+			destNotes.splice(endIdx,0,noteId);
+
+			//Update Redux with the new board state
+			this.props.updateColumn({id:sourceColumn, notes: sourceNotes});
+			this.props.updateColumn({id:destColumn, notes: destNotes});
+		}
 		
-		this.props.updateColumn({id:columnId, notes:newNotes})
 	}
 
   render() {
