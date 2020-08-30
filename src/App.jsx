@@ -15,9 +15,9 @@ export default class App extends React.Component{
 			<Provider store={store}>
 				
 					<HashRouter>
-					<Route path="/">
+					<Route path="/:id">
 						<SaveButton />
-						<Board boardId={1} />
+						<Board />
 					</Route>
 				</HashRouter>
 			</Provider>
