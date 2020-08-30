@@ -1,5 +1,5 @@
 import { CREATE_COLUMN, REMOVE_COLUMN } from "../actions/column_actions";
-import { UPDATE_BOARD } from "../actions/board_actions";
+import { UPDATE_BOARD, CREATE_BOARD } from "../actions/board_actions";
 
 export default function boardReducer(state = {}, action) {
 
@@ -8,6 +8,14 @@ export default function boardReducer(state = {}, action) {
 		let board;
 		let newBoard;
     switch (action.type) {
+
+			case CREATE_BOARD:
+				board = action.board;
+				board.id = state.nextId;
+
+				if(!board.columns) board.columns = []; 
+
+				return Object.assign({},state,{[board.id]:board},{nextId:state.nextId+1});
 			
 			case CREATE_COLUMN:
 				board = state[action.board.id];

@@ -1,11 +1,17 @@
-.board .columns {
-  display: flex;
+.board .columns{
+	display: flex;
+	height: 100%;
 }
 
 .board {
-  border: 1px solid black;
-  margin: 10px;
-  padding: 5px;
-  border-radius: 10px;
-  background-color: wheat;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 90vh;
+}
+
+.board > h1 {
+	box-shadow: black;
+	padding: 8px;
 }
