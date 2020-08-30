@@ -73,7 +73,7 @@ class Board extends React.Component {
 			let columnOrder = Array.from(this.props.board.columns);
 
 			//column id's come from the result object in the form "c<id>", so we need to extract the id and parse
-			let colId = Number(result.draggableId[1]);
+			let colId = Number(result.draggableId.slice(1));
 			let source = result.source;
 			let destination = result.destination;
 			//If invalid drop, return
@@ -93,6 +93,7 @@ class Board extends React.Component {
 	}
 
   render() {
+		
 		let {board} = this.props;
     let columnsIds = this.props.board.columns;
     let columns = columnsIds.map((id) => this.props.allColumns[id]);
