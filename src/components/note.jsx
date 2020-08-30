@@ -2,6 +2,7 @@ import React from "react";
 import { removeNote } from "../actions/note_actions";
 import { connect } from "react-redux";
 import EditNoteContainer from "./edit_note_container";
+import { Draggable } from "react-beautiful-dnd";
 
 class Note extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Note extends React.Component {
   handleDelete(e) {
     e.preventDefault();
 
-    this.props.removeNote(this.props.note.id);
+    this.props.removeNote(this.props.note.id, this.props.columnId);
   }
 
   render() {
@@ -39,13 +40,16 @@ class Note extends React.Component {
 
     if (this.state.show === true) {
       description = (
-        <div className="render-description">
-          <p onClick={this.showEdit}>{this.props.note.description}</p>
+        <div>
+          <p className="note-des" onClick={this.showEdit}>
+            {this.props.note.description}
+          </p>
         </div>
       );
     } else {
       description = <div></div>;
-    }
+		}
+		
     let editForm;
     if (this.state.showEdit === true) {
       editForm = (
@@ -56,22 +60,26 @@ class Note extends React.Component {
     } else {
       editForm = (
         <div>
+          <div onClick={this.handleDelete} className="delete-note">
+            x
+          </div>
           <h3 className="note-title" onClick={this.handleClick}>
             {this.props.note.title}
           </h3>
-
           {description}
         </div>
       );
     }
 
+    
     return (
-      <div className="note-item">
-        <div className="note-display">{editForm}</div>
-        <span onClick={this.handleDelete} className="delete-note">
-          x
-        </span>
-      </div>
+			<Draggable draggableId={String(this.props.note.id)} index={this.props.index}>
+				{ (provided)=>
+					<div className="note-item" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+						<div className="note-display">{editForm}</div>
+					</div>
+				}
+			</Draggable>
     );
   }
 }
@@ -81,7 +89,7 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = (dispatch) => ({
-  removeNote: (id) => dispatch(removeNote(id)),
+  removeNote: (noteId,columnId) => dispatch(removeNote(noteId,columnId)),
 });
 
 export default connect(mSTP, mDTP)(Note);

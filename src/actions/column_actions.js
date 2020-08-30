@@ -19,12 +19,8 @@ export const createColumn = (column,board) => {
 export const updateColumn = (column) => {
 	return {
 		type: UPDATE_COLUMN,
-		column: {
-			id: column.id,
-			title: column.title,
-			notes: column.notes,
+		column: column 
 		}
-	}
 }
 
 export const deleteColumn = (columnId,boardId, noteIds) => {

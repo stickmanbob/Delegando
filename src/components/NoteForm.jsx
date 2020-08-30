@@ -28,9 +28,8 @@ class NoteForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.state.colId = this.props.column.id;
+    this.setState({colId: this.props.column.id})
     let noteIds = Object.values(this.props.column.notes);
-
     noteIds.push(this.props.nextNoteId);
     let col = {
       notes: noteIds,
@@ -79,7 +78,9 @@ class NoteForm extends React.Component {
 
     return (
       <div>
-        <button onClick={this.handleClick}>+</button>
+        <button className="add-note" onClick={this.handleClick}>
+          +
+        </button>
         <div className="create-note">{createForm}</div>
       </div>
     );

@@ -17,3 +17,14 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+button {
+  border: 1px solid grey;
+  text-decoration: none;
+  background: lightgoldenrodyellow;
+  cursor: pointer;
+  font-family: "Amatic SC", cursive;
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 5px;
+}

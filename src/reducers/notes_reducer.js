@@ -16,8 +16,9 @@ const notesReducer = (state = {}, action) => {
       return Object.assign(nextState, state, newNote, { nextId: id + 1 });
 
     case REMOVE_NOTE:
+			
       nextState = Object.assign({}, state);
-      delete nextState[action.id];
+      delete nextState[action.noteId];
 
       return nextState;
     case UPDATE_NOTE:
