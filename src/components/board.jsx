@@ -105,7 +105,7 @@ class Board extends React.Component {
 				<DragDropContext
 					onDragEnd={this.handleDragEnd}
 				>
-					<Droppable droppableId={String(board.id)} direction="horizontal" type="column">
+					<Droppable droppableId={`b${board.id}`} direction="horizontal" type="column">
 						{(provided) => 
 						
         			<div className="columns"
