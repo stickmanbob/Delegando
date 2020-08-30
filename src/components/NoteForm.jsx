@@ -48,7 +48,10 @@ class NoteForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+		e.preventDefault();
+		
+		if(this.state.title.length ===0) return; 
+
     let noteIds = Object.values(this.props.column.notes);
     noteIds.push(this.props.nextNoteId);
     let col = {
