@@ -7,6 +7,7 @@ import configureStore from "./store/store";
 // TEST IMPORTS
   import * as colActions from "./actions/column_actions";
   import * as noteActions from "./actions/note_actions";
+import { Provider } from "react-redux";
 //
 
 window.colActions = colActions;
@@ -50,7 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ReactDOM.render(
     <React.StrictMode>
-      <App store={store} />
+			<Provider store={store}>
+      	<App />
+			</Provider>
     </React.StrictMode>,
     document.getElementById("root")
   );
