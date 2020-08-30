@@ -37,6 +37,9 @@ button {
 .board-index {
 		background-image: linear-gradient(to bottom,  #9EB7E5, rgb(247, 247, 247));
 	min-height: 900px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .board-index > h1 {

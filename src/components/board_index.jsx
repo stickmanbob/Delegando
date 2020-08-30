@@ -10,7 +10,27 @@ class BoardIndex extends React.Component{
 	constructor(props){
 		super(props);
 
+		this.state = {
+			showCreate: false 
+		}
+
+		this.createFormRef = React.createRef();
+
 		this.deleteBoard = this.deleteBoard.bind(this);
+		this.toggleCreateForm = this.toggleCreateForm.bind(this);
+		this.handleOuterClick = this.handleOuterClick.bind(this);
+	}
+
+	componentDidMount() {
+		document.addEventListener("mousedown", this.handleOuterClick, false);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener("mousedown", this.handleOuterClick, false);
+	}
+
+	handleOuterClick(e){
+		console.log(this.createFormRef); 
 	}
 
 	deleteBoard(board){
@@ -43,12 +63,26 @@ class BoardIndex extends React.Component{
 		return boardLinks;  
 	}
 
+	toggleCreateForm(){
+		this.setState({
+			showCreate: !this.state.showCreate
+		}); 
+	}
 	render(){
+
+		let createForm;
+		if(this.state.showCreate){
+			createForm = <NewBoardForm  />;
+		} else{
+			createForm = <button onClick={this.toggleCreateForm}>+</button>; 
+		}
 
 		return(
 		<section className="board-index">
 			<h1>All Boards</h1>
-			<NewBoardForm/>
+
+			{createForm}
+			
 			<div className="all-boards">
 					{this.renderBoards()}
 			</div>
