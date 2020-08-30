@@ -26,6 +26,8 @@ class NewBoardForm extends React.Component{
 
 	handleSubmit(e){
 		e.preventDefault();
+		if(this.state.title.length === 0) return; 
+		
 		let board = Object.assign({},this.state);
 		board.columns = [];
 		this.props.createBoard(board);
