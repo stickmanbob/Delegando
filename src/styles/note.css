@@ -98,10 +98,8 @@
 .note-des p{
 	word-wrap: break-word;
 	margin-top: 10px;
-	margin-left: 10px;
-	margin-right:10px;
 	font-size: 22px;
-	/* text-align: center; */
+	
 }
 
 .add-note {
