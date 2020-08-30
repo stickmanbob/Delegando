@@ -25,14 +25,29 @@ document.addEventListener("DOMContentLoaded", () => {
 			entities: {
 				boards: {
 					1: {
-						title: "My Board",
-						columns: [],
+						title: "My First Board",
+						columns: [1,2,3],
 						id:1
 					},
 					nextId: 2,
 				},
 				columns: {
-					nextId: 1,
+					1:{
+						title:"To Do",
+						notes:[],
+						id:1
+					},
+					2: {
+						title: "In Progress",
+						notes: [],
+						id: 2
+					},
+					3: {
+						title: "Done",
+						notes: [],
+						id: 3
+					},
+					nextId: 4,
 				},
 				notes: {
 					nextId: 1,

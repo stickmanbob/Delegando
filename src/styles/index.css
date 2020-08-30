@@ -58,6 +58,9 @@ button {
 	position: absolute;
 	right: -50px; 
 	top: -15px; 
+	color: white; 
+	-webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 	
 }
 
