@@ -2,8 +2,6 @@ import React from "react";
 import {connect} from 'react-redux';
 import "./styles/index.css";
 import Board from "./components/board";
-import { Provider } from "react-redux";
-import SaveButton from './components/save_button';
 import { HashRouter, Switch, Route} from "react-router-dom";
 import BoardIndex from "./components/board_index";
 import Landing from "./components/landing";
@@ -29,7 +27,7 @@ class App extends React.Component{
 				<HashRouter>
 					<Switch>
 						<Route path="/boards/:id">
-							<Board  />
+							<Board />
 						</Route>
 
 						<Route path="/boards">
