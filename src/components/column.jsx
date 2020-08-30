@@ -6,7 +6,7 @@ import CreateNoteContainer from "./create_note_container";
 import { createNote, removeNote } from "../actions/note_actions";
 import EditColumnForm from "./edit_column_form";
 import { deleteColumn } from "../actions/column_actions";
-import { Droppable } from "react-beautiful-dnd";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 
 class Column extends React.Component {
   constructor(props) {
@@ -72,23 +72,37 @@ class Column extends React.Component {
     let title = this.selectTitle();
 
     return (
-      <div className="column">
-        <div className="delete-col" onClick={this.deleteSelf}>
-          X
-        </div>
-        {title}
-
-        <CreateNoteContainer colId={column.id} />
-				<Droppable droppableId={String(column.id)}>
-					{ (provided)=>
-						<div className="notes-list" {...provided.droppableProps} ref={provided.innerRef} >
-							{provided.placeholder}
-							<ul>{this.renderNotes()}</ul>
+			
+			<Draggable draggableId={`c${column.id}`} index={this.props.index}>{ (provided) => 
+				
+				<div className="column"
+				{...provided.draggableProps}
+				ref={provided.innerRef}
+				
+				>
+					<div className="column-heading" {...provided.dragHandleProps}>
+						{title}
+						<div className="delete-col" onClick={this.deleteSelf}>
+							X
 						</div>
-						
-					}		
-				</Droppable>
-      </div>
+					
+					</div>
+
+					<CreateNoteContainer colId={column.id} />
+
+					<Droppable droppableId={String(column.id)} type="note">
+						{ (provided)=>
+							<div className="notes-list" {...provided.droppableProps} ref={provided.innerRef} >
+								{provided.placeholder}
+								<ul>{this.renderNotes()}</ul>
+							</div>
+							
+						}		
+					</Droppable>
+
+				</div>
+			
+			}</Draggable>
     );
   }
 }

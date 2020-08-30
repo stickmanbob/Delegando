@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Column from "./column";
 import { createColumn, updateColumn } from "../actions/column_actions";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
 class Board extends React.Component {
   constructor(props) {
@@ -12,8 +12,8 @@ class Board extends React.Component {
   }
 
   renderColumns(columns) {
-    return columns.map((col) => {
-      return <Column column={col} key={col.id} boardId={this.props.board.id} />;
+    return columns.map((col,idx) => {
+      return <Column column={col} key={col.id} index={idx} boardId={this.props.board.id} />;
     });
   }
 
@@ -33,53 +33,71 @@ class Board extends React.Component {
 		if(!result.destination) return;
 		console.log(result); 
 
-		let startIdx = Number(result.source.index);
-		let endIdx = Number(result.destination.index);
-		let noteId = Number(result.draggableId);
+		if(result.type = "note"){
 
-		if(result.source.droppableId === result.destination.droppableId){ //If dropping in the same column
-			let columnId = Number(result.destination.droppableId);
-			let notes = allColumns[columnId].notes;
-			let newNotes = Array.from(notes);
+			let startIdx = Number(result.source.index);
+			let endIdx = Number(result.destination.index);
+			let noteId = Number(result.draggableId);
 
-			//Move the note in the source column
-			newNotes.splice(startIdx, 1);
-			newNotes.splice(endIdx, 0, noteId);
+			if(result.source.droppableId === result.destination.droppableId){ //If dropping in the same column
+				let columnId = Number(result.destination.droppableId);
+				let notes = allColumns[columnId].notes;
+				let newNotes = Array.from(notes);
 
-			//Update Redux with our new board state
-			this.props.updateColumn({ id: columnId, notes: newNotes })
+				//Move the note in the source column
+				newNotes.splice(startIdx, 1);
+				newNotes.splice(endIdx, 0, noteId);
 
-		}else{ // if moving columns
-			let sourceColumn = Number(result.source.droppableId);
-			let destColumn = Number(result.destination.droppableId);
-			let sourceNotes = Array.from(allColumns[sourceColumn].notes);
-			let destNotes = Array.from(allColumns[destColumn].notes);
+				//Update Redux with our new board state
+				this.props.updateColumn({ id: columnId, notes: newNotes })
 
-			//Remove the Note from the source column
-			sourceNotes.splice(startIdx,1);
+			}else{ // if moving columns
+				let sourceColumn = Number(result.source.droppableId);
+				let destColumn = Number(result.destination.droppableId);
+				let sourceNotes = Array.from(allColumns[sourceColumn].notes);
+				let destNotes = Array.from(allColumns[destColumn].notes);
 
-			//Add the Note to the destination column
-			destNotes.splice(endIdx,0,noteId);
+				//Remove the Note from the source column
+				sourceNotes.splice(startIdx,1);
 
-			//Update Redux with the new board state
-			this.props.updateColumn({id:sourceColumn, notes: sourceNotes});
-			this.props.updateColumn({id:destColumn, notes: destNotes});
+				//Add the Note to the destination column
+				destNotes.splice(endIdx,0,noteId);
+
+				//Update Redux with the new board state
+				this.props.updateColumn({id:sourceColumn, notes: sourceNotes});
+				this.props.updateColumn({id:destColumn, notes: destNotes});
+			}
+		} else if(result.type==="column"){
+			let columnOrder = this.props.board.columns;
+			let colId = Number(result.draggableId[1]);
+			console.log(colId);
 		}
 		
 	}
 
   render() {
+		let {board} = this.props;
     let columnsIds = this.props.board.columns;
     let columns = columnsIds.map((id) => this.props.allColumns[id]);
 		
     return (
       <section className="board">
-				<h1>{this.props.board.title}</h1>
+				<h1>{board.title}</h1>
         <button onClick={this.createColumn}>Add Column</button>
 				<DragDropContext
 					onDragEnd={this.handleDragEnd}
 				>
-        	<div className="columns">{this.renderColumns(columns)}</div>
+					<Droppable droppableId={String(board.id)} direction="horizontal" type="column">
+						{(provided) => 
+        			<div className="columns"
+							{...provided.droppableProps}
+							ref = {provided.innerRef}
+							>
+								{provided.placeholder}
+								{this.renderColumns(columns)}
+								</div>
+						}
+					</Droppable>
 				</DragDropContext>
       </section>
     );
