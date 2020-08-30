@@ -20,10 +20,22 @@
 }
 
 .create-form > textarea {
+	display: flex;
   font-family: "Amatic SC", cursive;
   height: 50px;
   margin: 4px;
   border: none;
+}
+
+.render-description {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 80%;
+}
+
+.note-title {
+	word-wrap: normal;
+	max-width: 80%;
 }
 
 .delete-note {

@@ -39,7 +39,7 @@ class Note extends React.Component {
 
     if (this.state.show === true) {
       description = (
-        <div>
+        <div className="render-description">
           <p onClick={this.showEdit}>{this.props.note.description}</p>
         </div>
       );
