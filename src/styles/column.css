@@ -4,8 +4,12 @@
 	align-items: center;
   border: 1px solid black;
   border-radius: 10px;
-  width: 200px;
-  margin: 5px;
+	width: 200px;
+	height: 100%;
+	margin: 5px;
+	/* background-color: #9EB7E5; */
+	/* background-color: #C7EFCF; */
+	background-image: linear-gradient(to bottom, #9EB7E5, #C7EFCF);
 }
 
 .column-heading{
