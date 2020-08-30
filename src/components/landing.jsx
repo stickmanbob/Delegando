@@ -7,7 +7,7 @@ export default function Landing () {
 		<section>
 			<header className="landing-one">
 				<h3>Helping you delegate your tasks</h3>
-				<img src="https://raw.githubusercontent.com/danjamesyee/PK/master/delegando.gif?token=AO33HIPWGSEQ47LYQL7JVB27JQGJU"></img>
+				<img src="../public/delegando.gif"></img>
 				<Link to="/boards">Start here</Link>
 			</header>
 

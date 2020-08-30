@@ -64,7 +64,8 @@
 
 .landing-three > h2 {
 	padding-bottom: 20px;
-	margin-left: 15px;
+	margin-left: 20px;
+	font-size: 61px;
 }
 
 
@@ -79,7 +80,10 @@
 
 .landing-three > div > p {
 	margin: 15px;
-	font-size: 25px;
+	font-size: 35px;
+	    background: aliceblue;
+    border-radius: 10px;
+    padding: 30px;
 }
 
 
