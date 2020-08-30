@@ -80,12 +80,11 @@ class Column extends React.Component {
 				ref={provided.innerRef}
 				
 				>
+					<div className="delete-col" onClick={this.deleteSelf}>
+						X
+						</div>
 					<div className="column-heading" {...provided.dragHandleProps}>
 						{title}
-						<div className="delete-col" onClick={this.deleteSelf}>
-							X
-						</div>
-					
 					</div>
 
 					<CreateNoteContainer colId={column.id} />
@@ -93,8 +92,9 @@ class Column extends React.Component {
 					<Droppable droppableId={String(column.id)} type="note">
 						{ (provided)=>
 							<div className="notes-list" {...provided.droppableProps} ref={provided.innerRef} >
-								{provided.placeholder}
+								
 								<ul>{this.renderNotes()}</ul>
+								{provided.placeholder}
 							</div>
 							
 						}		

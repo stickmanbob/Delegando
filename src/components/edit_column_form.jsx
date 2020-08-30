@@ -61,7 +61,7 @@ class editColumnForm extends React.Component {
           value={this.state.title}
           type="text"
         />
-        <button className="edit-column-submit" type="submit" />
+        <button className="edit-column-submit" type="submit" >Save Changes</button>
       </form>
     );
   }

@@ -107,12 +107,14 @@ class Board extends React.Component {
 				>
 					<Droppable droppableId={String(board.id)} direction="horizontal" type="column">
 						{(provided) => 
+						
         			<div className="columns"
 							{...provided.droppableProps}
 							ref = {provided.innerRef}
 							>
-								{provided.placeholder}
+								
 								{this.renderColumns(columns)}
+								{provided.placeholder}
 								</div>
 						}
 					</Droppable>
