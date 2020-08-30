@@ -123,7 +123,7 @@ class Board extends React.Component {
 }
 
 function mSTP(state, ownProps) {
-	console.log(ownProps)
+	
   return {
     allColumns: Object.assign({},state.entities.columns),
     board: Object.assign({},state.entities.boards[ownProps.match.params.id]),

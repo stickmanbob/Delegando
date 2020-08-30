@@ -5,11 +5,13 @@ import {
 } from "../actions/column_actions";
 
 import { CREATE_NOTE, REMOVE_NOTE } from "../actions/note_actions";
+import { DELETE_BOARD } from "../actions/board_actions";
 
 export default function columnsReducer(state = {}, action) {
   Object.freeze(state);
   let column;
 	let newColumn; 
+	let newState; 
   switch (action.type) {
     case CREATE_COLUMN:
       // First, let's get the next availible object id
@@ -37,7 +39,7 @@ export default function columnsReducer(state = {}, action) {
       return Object.assign({}, state, { [action.column.id]: updatedCol });
 
     case REMOVE_COLUMN:
-      let newState = Object.assign({}, state);
+      newState = Object.assign({}, state);
       delete newState[action.columnId];
       return newState;
 		
@@ -54,6 +56,12 @@ export default function columnsReducer(state = {}, action) {
 			newNotes.splice(noteIdx,1);
 			newColumn = Object.assign({},column,{notes:newNotes});
 			return Object.assign({},state,{[action.columnId]:newColumn});
+		case DELETE_BOARD:
+			newState = Object.assign({}, state);
+			action.columnIds.forEach((columnId) => {
+				delete newState[columnId];
+			});
+			return newState;
 
     default:
       return state;
