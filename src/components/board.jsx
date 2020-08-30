@@ -52,8 +52,8 @@ class Board extends React.Component {
 		}else{ // if moving columns
 			let sourceColumn = Number(result.source.droppableId);
 			let destColumn = Number(result.destination.droppableId);
-			let sourceNotes = allColumns[sourceColumn].notes;
-			let destNotes = allColumns[destColumn].notes;
+			let sourceNotes = Array.from(allColumns[sourceColumn].notes);
+			let destNotes = Array.from(allColumns[destColumn].notes);
 
 			//Remove the Note from the source column
 			sourceNotes.splice(startIdx,1);
