@@ -1,9 +1,17 @@
 .column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
   border: 1px solid black;
   border-radius: 10px;
   width: 200px;
-  text-align: center;
   margin: 5px;
+}
+
+.column-heading{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
 .column-title {
@@ -13,15 +21,20 @@
   margin-block-end: 0.83em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-weight: bold;
+	font-weight: bold;
 }
+
+
 
 .delete-col {
   cursor: pointer;
   font-family: sans-serif;
-  position: relative;
-  left: 90px;
-  top: 3px;
+}
+
+.column .notes-list{
+	display:flex;
+	flex-direction: column;
+	padding: 10px;
 }
 
 .edit-column-submit {

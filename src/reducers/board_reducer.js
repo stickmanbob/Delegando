@@ -1,4 +1,5 @@
 import { CREATE_COLUMN, REMOVE_COLUMN } from "../actions/column_actions";
+import { UPDATE_BOARD } from "../actions/board_actions";
 
 export default function boardReducer(state = {}, action) {
 
@@ -21,6 +22,10 @@ export default function boardReducer(state = {}, action) {
 				columnIds.splice(idx,1);
 				newBoard = Object.assign({},board,{columns: columnIds});
 				return Object.assign({},state,{[newBoard.id]:newBoard})
+			
+			case UPDATE_BOARD:
+				
+				return Object.assign({},state,{[action.board.id]: action.board});
 
       default:
             return state;
