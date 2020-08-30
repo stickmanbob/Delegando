@@ -1,3 +1,11 @@
-.board .columns{
-	display: flex;
+.board .columns {
+  display: flex;
+}
+
+.board {
+  border: 1px solid black;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: wheat;
 }
