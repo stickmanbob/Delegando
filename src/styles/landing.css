@@ -1,5 +1,5 @@
 .landing-one {
-		height: 700px;
+		height: 600px;
 		text-align: center;
 		font-size: 50px;
 		background-image: linear-gradient(to bottom, #9EB7E5, #C7EFCF);
@@ -14,7 +14,9 @@
 	height: 380px;
     border-radius: 10px;
     position: relative;
-    left: 58px;
+		left: 58px;
+		top: 26px;
+    border: 1px solid grey;
 }
 
 .landing-two {
@@ -41,8 +43,9 @@
 	margin: 10px;
 	font-size: 35px;
 	position: relative;
-	top: 300px;
-}
+    top: 100px;
+		right: 242px;
+	}
 
 .landing-one > a:hover {
 	color: #9EB7E5
