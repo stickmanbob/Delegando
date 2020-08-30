@@ -40,11 +40,14 @@ class Note extends React.Component {
 
     if (this.state.show === true) {
       description = (
-        <div>
-					<button onClick={this.showEdit}>Edit</button>
-          <p className="note-des" >
+				<div className="note-des">
+					
+          <p  >
             {this.props.note.description}
           </p>
+
+					<button onClick={this.showEdit}>Edit</button>
+					
         </div>
       );
     } else {
@@ -77,7 +80,7 @@ class Note extends React.Component {
 			<Draggable draggableId={String(this.props.note.id)} index={this.props.index}>
 				{ (provided)=>
 					<div className="note-item" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-						<div className="note-display">{editForm}</div>
+						{editForm}
 					</div>
 				}
 			</Draggable>
