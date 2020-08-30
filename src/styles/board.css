@@ -1,5 +1,6 @@
 .board .columns{
 	display: flex;
+	height: 100%;
 }
 
 .board {
@@ -7,6 +8,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	height: 90vh;
 }
 
 .board > h1 {
