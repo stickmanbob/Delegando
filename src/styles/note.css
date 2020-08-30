@@ -62,6 +62,11 @@
 	flex-direction: column;
 	word-wrap: break-word;
 	max-width: 80%;
+	cursor: pointer;
+}
+
+.note-title:hover{
+	color: rgb(89, 100, 110);
 }
 
 .delete-note {

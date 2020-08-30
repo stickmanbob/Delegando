@@ -1,5 +1,5 @@
 .landing-one {
-		height: 500px;
+		height: 700px;
 		text-align: center;
 		font-size: 50px;
 		background-image: linear-gradient(to bottom, #9EB7E5, #C7EFCF);
@@ -8,6 +8,13 @@
 
 .landing-one > h3 {
 	padding-top: 50px;
+}
+
+.landing-one > img {
+	height: 380px;
+    border-radius: 10px;
+    position: relative;
+    left: 58px;
 }
 
 .landing-two {
