@@ -102,9 +102,9 @@ class NoteForm extends React.Component {
 
     return (
       <div>
-        { !(this.state.show) && <button className="add-note" onClick={this.handleClick}>
+        { !(this.state.show) && <span className="add-note" onClick={this.handleClick}>
           +
-        </button>
+        </span>
 	}
         <div className="create-note">{createForm}</div>
       </div>

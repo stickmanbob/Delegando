@@ -34,6 +34,10 @@ button {
   border-radius: 5px;
   margin: 5px;
 }
+
+button:hover {
+	background-color: rgb(199, 199, 147);
+}
 .board-index {
 		background-image: linear-gradient(to bottom,  #9EB7E5, rgb(247, 247, 247));
 	min-height: 900px;
