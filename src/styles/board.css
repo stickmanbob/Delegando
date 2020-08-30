@@ -1,8 +1,5 @@
 .board .columns{
 	display: flex;
-	color: lightgoldenrodyellow;
-	background-color: sienna;
-	box-shadow: black;
 }
 
 .board {
@@ -10,14 +7,9 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: darkslategrey;
 }
 
 .board > h1 {
-	color: lightgoldenrodyellow;
-	background-color: sienna;
-	border: 1.5px solid black;
 	box-shadow: black;
 	padding: 8px;
-	border-radius: 10px;
 }
