@@ -51,15 +51,21 @@
 	max-width: 80%;
 }
 
+.note-heading{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .note-title {
-	word-wrap: normal;
+	display: flex;
+	flex-direction: column;
+	word-wrap: break-word;
 	max-width: 80%;
 }
 
 .delete-note {
-  position: relative;
-  left: 75px;
-
+	align-self: flex-end;
   font-family: sans-serif;
   cursor: pointer;
   display: inline;
@@ -78,7 +84,8 @@
   margin-right: 10px;
   margin-bottom: 0;
   margin-top: 1px;
-  font-size: 30px;
+	font-size: 30px;
+	/* width: 100%; */
 }
 
 .note-des {

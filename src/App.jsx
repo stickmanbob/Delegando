@@ -5,6 +5,7 @@ import Board from "./components/board";
 import { HashRouter, Switch, Route} from "react-router-dom";
 import BoardIndex from "./components/board_index";
 import Landing from "./components/landing";
+import NavBar from "./components/nav-bar";
 
 class App extends React.Component{
 	constructor(props){
@@ -24,7 +25,10 @@ class App extends React.Component{
 	render(){
 		this.save();
 		return (	
+			
+				
 				<HashRouter>
+				<NavBar />
 					<Switch>
 						<Route path="/boards/:id">
 							<Board />
@@ -40,6 +44,7 @@ class App extends React.Component{
 					</Switch>
 
 				</HashRouter>
+			
 			
 		);
 	} 

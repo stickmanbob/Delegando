@@ -80,12 +80,11 @@ class Column extends React.Component {
 				ref={provided.innerRef}
 				
 				>
+					<div className="delete-col" onClick={this.deleteSelf}>
+						X
+						</div>
 					<div className="column-heading" {...provided.dragHandleProps}>
 						{title}
-						<div className="delete-col" onClick={this.deleteSelf}>
-							X
-						</div>
-					
 					</div>
 
 					<CreateNoteContainer colId={column.id} />

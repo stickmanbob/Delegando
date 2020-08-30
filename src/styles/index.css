@@ -2,6 +2,12 @@
 @import url("./board.css");
 @import url("./modal.css");
 @import url("./column.css");
+@import url("./landing.css");
+@import url("./reset.css");
+
+#root{
+	min-width: fit-content;
+}
 
 .App {
   font-family: "Amatic SC", cursive;
@@ -27,4 +33,76 @@ button {
   font-size: 20px;
   border-radius: 5px;
   margin: 5px;
+}
+.board-index {
+		background-image: linear-gradient(to bottom,  #9EB7E5, rgb(247, 247, 247));
+	min-height: 900px;
+}
+
+.board-index > h1 {
+	  text-align: center;
+    font-size: 50px;
+    padding: 15px;
+}
+
+.new-board-form {
+	text-align: center;
+}
+
+.new-board-form > label > h2 {
+	display: inline;
+	font-size: 30px;
+	padding-right: 10px;
+	position: relative;
+	top: 5px;
+}
+
+.new-board-form > label > input {
+  font-family: "Amatic SC", cursive;
+	font-size: 25px;
+	position: relative;
+	top: 5px;
+
+	border-radius: 10px;
+}
+
+.new-board-form  > button{
+	position: relative;
+	top: 3px;
+	margin-left: 15px;
+}
+
+.all-boards > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 25px;
+	padding-top: 0;
+	font-size: 40px;
+	background: whitesmoke;
+  width: 200px;
+	border-radius: 10px;
+	margin-left: 40px;
+	margin-top: 40px;
+	border: 1px solid grey;
+	word-wrap: break-word;
+}
+
+.all-boards div h2:hover{
+	color: rgb(89, 100, 110);
+}
+.board-index  span {
+		align-self: flex-end;
+		cursor: pointer;
+    
+}
+
+.board-index  span:hover {
+		color:red; 
+    
+}
+
+.all-boards {
+	display: flex;
+  flex-wrap: wrap;
 }
