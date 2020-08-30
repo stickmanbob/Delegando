@@ -10,6 +10,7 @@
 	/* background-color: #9EB7E5; */
 	/* background-color: #C7EFCF; */
 	background-image: linear-gradient(to bottom, #9EB7E5, #C7EFCF);
+	padding: 0px 10px;
 }
 
 .column-heading{
@@ -64,8 +65,8 @@
 .column .notes-list{
 	display:flex;
 	flex-direction: column;
-	padding: 10px;
-	min-width: 90%;
+	
+	min-width: 97%;
 	height: 90%;
 }
 
