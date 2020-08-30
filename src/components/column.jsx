@@ -92,8 +92,9 @@ class Column extends React.Component {
 					<Droppable droppableId={String(column.id)} type="note">
 						{ (provided)=>
 							<div className="notes-list" {...provided.droppableProps} ref={provided.innerRef} >
-								{provided.placeholder}
+								
 								<ul>{this.renderNotes()}</ul>
+								{provided.placeholder}
 							</div>
 							
 						}		
