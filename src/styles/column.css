@@ -31,6 +31,12 @@
   font-family: sans-serif;
 }
 
+.column .notes-list{
+	display:flex;
+	flex-direction: column;
+	padding: 10px;
+}
+
 .edit-column-submit {
   display: none;
 }

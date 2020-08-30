@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Column from "./column";
 import { createColumn, updateColumn } from "../actions/column_actions";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { updateBoard } from "../actions/board_actions";
 
 class Board extends React.Component {
   constructor(props) {
@@ -32,8 +33,8 @@ class Board extends React.Component {
 		let allColumns = this.props.allColumns
 		if(!result.destination) return;
 		console.log(result); 
-
-		if(result.type = "note"){
+	
+		if(result.type === "note"){
 
 			let startIdx = Number(result.source.index);
 			let endIdx = Number(result.destination.index);
@@ -67,10 +68,25 @@ class Board extends React.Component {
 				this.props.updateColumn({id:sourceColumn, notes: sourceNotes});
 				this.props.updateColumn({id:destColumn, notes: destNotes});
 			}
-		} else if(result.type==="column"){
-			let columnOrder = this.props.board.columns;
+		} else if(result.type ==="column"){
+			let columnOrder = Array.from(this.props.board.columns);
+
+			//column id's come from the result object in the form "c<id>", so we need to extract the id and parse
 			let colId = Number(result.draggableId[1]);
-			console.log(colId);
+			let source = result.source;
+			let destination = result.destination;
+			//If invalid drop, return
+			if(!destination) return;
+
+			let startIdx = source.index;
+			let endIdx = destination.index;
+
+			//move the columns
+			columnOrder.splice(startIdx,1);
+			columnOrder.splice(endIdx,0,colId);
+			let newBoard = Object.assign({},this.props.board, {columns:columnOrder});
+
+			this.props.updateBoard(newBoard);
 		}
 		
 	}
@@ -115,7 +131,8 @@ function mSTP(state, ownProps) {
 function mDTP(dispatch) {
   return {
 		createColumn: (column,board) => dispatch(createColumn(column,board)),
-		updateColumn: (column) => dispatch(updateColumn(column))
+		updateColumn: (column) => dispatch(updateColumn(column)),
+		updateBoard: (board) => dispatch(updateBoard(board))
   };
 }
 
