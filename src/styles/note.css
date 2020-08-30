@@ -41,8 +41,9 @@
 	/* background: blanchedalmond; */
 	background-image: linear-gradient(to bottom, blanchedalmond, burlywood);
   border-radius: 9px;
-  margin: 13px;
-  font-weight: 900;
+  /* margin: 13px; */
+	font-weight: 900;
+	padding: 0px 10px
 }
 
 .render-description {
@@ -51,15 +52,27 @@
 	max-width: 80%;
 }
 
+.note-heading{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5px 0px 10px 0px;
+}
+
 .note-title {
-	word-wrap: normal;
+	display: flex;
+	flex-direction: column;
+	word-wrap: break-word;
 	max-width: 80%;
+	cursor: pointer;
+}
+
+.note-title:hover{
+	color: rgb(89, 100, 110);
 }
 
 .delete-note {
-  position: relative;
-  left: 75px;
-
+	align-self: flex-end;
   font-family: sans-serif;
   cursor: pointer;
   display: inline;
@@ -78,7 +91,8 @@
   margin-right: 10px;
   margin-bottom: 0;
   margin-top: 1px;
-  font-size: 30px;
+	font-size: 30px;
+	/* width: 100%; */
 }
 
 .note-des {

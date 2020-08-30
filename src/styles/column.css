@@ -4,8 +4,8 @@
 	align-items: center;
   border: 1px solid black;
   border-radius: 10px;
-	width: 200px;
-	height: 100%;
+	width: 300px;
+	min-height: 100vh;
 	margin: 5px;
 	/* background-color: #9EB7E5; */
 	/* background-color: #C7EFCF; */
@@ -16,31 +16,65 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	justify-content: center;
+	width: 100%;
 }
 
-.column-title {
+.column-heading h2 {
   font-family: "Amatic SC", cursive;
-  font-size: 1.5em;
-  margin-block-start: 0.83em;
+  font-size: 2em;
+  /* margin-block-start: 0.83em; */
   margin-block-end: 0.83em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 	font-weight: bold;
+	cursor: pointer;
+}
+
+.column-heading input{
+	font-family: "Amatic SC", cursive;
+	font-size: 28px;
+	width:80%; 
+	margin-left: 5px;
+}
+
+.column-heading h2:hover{
+	color: rgb(89, 100, 110);
 }
 
 
 
 .delete-col {
   cursor: pointer;
-  font-family: sans-serif;
+	font-family: sans-serif;
+	align-self: flex-end;
+	margin-top: 5px;
+	margin-right: 5px;
+	font-weight: 700;
+}
+
+.add-note:hover{
+	color: green;
+}
+
+.delete-col:hover{
+	color:red; 
 }
 
 .column .notes-list{
 	display:flex;
 	flex-direction: column;
 	padding: 10px;
+	min-width: 90%;
+	height: 90%;
+}
+
+.edit-column-form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .edit-column-submit {
-  display: none;
+  
 }

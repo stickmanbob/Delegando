@@ -49,7 +49,9 @@ class BoardIndex extends React.Component{
 		<section className="board-index">
 			<h1>All Boards</h1>
 			<NewBoardForm/>
-			{this.renderBoards()}
+			<div className="all-boards">
+					{this.renderBoards()}
+			</div>
 		</section>
 		)
 	}

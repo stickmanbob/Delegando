@@ -41,7 +41,8 @@ class Note extends React.Component {
     if (this.state.show === true) {
       description = (
         <div>
-          <p className="note-des" onClick={this.showEdit}>
+					<button onClick={this.showEdit}>Edit</button>
+          <p className="note-des" >
             {this.props.note.description}
           </p>
         </div>
@@ -59,7 +60,7 @@ class Note extends React.Component {
       );
     } else {
       editForm = (
-        <div>
+        <div class="note-heading">
           <div onClick={this.handleDelete} className="delete-note">
             x
           </div>

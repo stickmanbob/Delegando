@@ -37,8 +37,9 @@ class NewBoardForm extends React.Component{
 
 		return(
 			<section className="new-board-form">
-				<label> Title
-					<input onChange={this.handleChange("title")} value={this.state.title} type="text"/>
+				
+				<label> 
+					<h2>Title</h2><input onChange={this.handleChange("title")} value={this.state.title} type="text"/>
 				</label>
 				<button onClick={this.handleSubmit}>Create!</button>
 			</section>
