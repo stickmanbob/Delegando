@@ -3,10 +3,11 @@
 @import url("./modal.css");
 @import url("./column.css");
 @import url("./landing.css");
+@import url("./footer.css");
 @import url("./reset.css");
 
-#root{
-	min-width: fit-content;
+#root {
+  min-width: fit-content;
 }
 
 .App {
@@ -36,100 +37,96 @@ button {
 }
 
 button:hover {
-	background-color: rgb(199, 199, 147);
+  background-color: rgb(199, 199, 147);
 }
 .board-index {
-		background-image: linear-gradient(to bottom,  #9EB7E5, rgb(247, 247, 247));
-	min-height: 900px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  background-image: linear-gradient(to bottom, #9eb7e5, rgb(247, 247, 247));
+  min-height: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .board-index > h1 {
-	  text-align: center;
-    font-size: 50px;
-		padding: 15px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: relative;
-		
+  text-align: center;
+  font-size: 50px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-.add-board-button{
-	font-size: 100px;
-	position: absolute;
-	right: -50px; 
-	top: -15px; 
-	color: white; 
-	-webkit-text-stroke-width: 1px;
+.add-board-button {
+  font-size: 100px;
+  position: absolute;
+  right: -50px;
+  top: -15px;
+  color: white;
+  -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
-	
 }
 
-.board-index .add-board-button:hover{
-	color: green; 
+.board-index .add-board-button:hover {
+  color: green;
 }
 
 .new-board-form {
-	text-align: center;
+  text-align: center;
 }
 
 .new-board-form > label > h2 {
-	display: inline;
-	font-size: 30px;
-	padding-right: 10px;
-	position: relative;
-	top: 5px;
+  display: inline;
+  font-size: 30px;
+  padding-right: 10px;
+  position: relative;
+  top: 5px;
 }
 
 .new-board-form > label > input {
   font-family: "Amatic SC", cursive;
-	font-size: 25px;
-	position: relative;
-	top: 5px;
+  font-size: 25px;
+  position: relative;
+  top: 5px;
 
-	border-radius: 10px;
+  border-radius: 10px;
 }
 
-.new-board-form  > button{
-	position: relative;
-	top: 3px;
-	margin-left: 15px;
+.new-board-form > button {
+  position: relative;
+  top: 3px;
+  margin-left: 15px;
 }
 
 .all-boards > div {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 25px;
-	padding-top: 0;
-	font-size: 40px;
-	background: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  padding-top: 0;
+  font-size: 40px;
+  background: whitesmoke;
   width: 200px;
-	border-radius: 10px;
-	margin-left: 40px;
-	margin-top: 40px;
-	border: 1px solid grey;
-	word-wrap: break-word;
+  border-radius: 10px;
+  margin-left: 40px;
+  margin-top: 40px;
+  border: 1px solid grey;
+  word-wrap: break-word;
 }
 
-.all-boards div h2:hover{
-	color: rgb(89, 100, 110);
+.all-boards div h2:hover {
+  color: rgb(89, 100, 110);
 }
-.board-index  span {
-		align-self: flex-end;
-		cursor: pointer;
-    
+.board-index span {
+  align-self: flex-end;
+  cursor: pointer;
 }
 
-.board-index  span:hover {
-		color:red; 
-    
+.board-index span:hover {
+  color: red;
 }
 
 .all-boards {
-	display: flex;
+  display: flex;
   flex-wrap: wrap;
 }

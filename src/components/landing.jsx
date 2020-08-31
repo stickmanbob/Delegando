@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Landing() {
   return (
-    <section>
+    <section className="landing">
       <header className="landing-one">
         <h3>Helping you delegate your tasks</h3>
         <img src={require("../delegando.gif")} alt="gif"></img>
