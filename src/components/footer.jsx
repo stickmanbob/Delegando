@@ -11,11 +11,19 @@ export default function Footer() {
             {" "}
             <i className="fab fa-github-alt"></i> &nbsp;Github Links
           </h3>
-          <a href="https://github.com/stickmanbob/JS-Olympics">Github Repo</a>
+          <a href="https://github.com/stickmanbob/JS-Olympics" target="_blank">
+            Github Repo
+          </a>
 
-          <a href="https://github.com/stickmanbob">Ajay Rajamani</a>
-          <a href="https://github.com/danjamesyee">Daniel Yee</a>
-          <a href="https://github.com/danchau88">Daniel Chau</a>
+          <a href="https://github.com/stickmanbob" target="_blank">
+            Ajay Rajamani
+          </a>
+          <a href="https://github.com/danjamesyee" target="_blank">
+            Daniel Yee
+          </a>
+          <a href="https://github.com/danchau88" target="_blank">
+            Daniel Chau
+          </a>
         </div>
         <div className="linkedins">
           <h3>
@@ -23,13 +31,22 @@ export default function Footer() {
             <i class="fab fa-linkedin-in"></i> &nbsp;Linkedin Links
           </h3>
 
-          <a href="https://www.linkedin.com/in/ajay-rajamani-1789711b2/">
+          <a
+            href="https://www.linkedin.com/in/ajay-rajamani-1789711b2/"
+            target="_blank"
+          >
             Ajay Rajamani
           </a>
-          <a href="https://www.linkedin.com/in/daniel-yee-6886441b0/">
+          <a
+            href="https://www.linkedin.com/in/daniel-yee-6886441b0/"
+            target="_blank"
+          >
             Daniel Yee
           </a>
-          <a href="https://www.linkedin.com/in/daniel-chau-432718105/">
+          <a
+            href="https://www.linkedin.com/in/daniel-chau-432718105/"
+            target="_blank"
+          >
             Daniel Chau
           </a>
         </div>
