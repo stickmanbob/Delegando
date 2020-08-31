@@ -82,17 +82,18 @@
 }
 
 .nav-bar {
-  display: flex;
+	display: flex;
+	align-items: center;
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .nav-bar > h1 {
-  font-size: 30px;
+  font-size: 40px;
   padding: 15px;
 }
 
 .nav-bar > h2 {
-  font-size: 20px;
+  font-size: 30px;
   padding: 20px;
   margin-left: 30px;
 }
