@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1855842f7635a71ba177c6a5eb4a8c81",
+    "revision": "e20d8f3e93a432e6cf13e452195a4da6",
     "url": "/JS-Olympics/index.html"
   },
   {
-    "revision": "c46146f373a62f18ef3b",
-    "url": "/JS-Olympics/static/css/main.7c061dd5.chunk.css"
+    "revision": "456c904646410b9c01f9",
+    "url": "/JS-Olympics/static/css/main.a3faa807.chunk.css"
   },
   {
     "revision": "b14939039a629c7a3114",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/JS-Olympics/static/js/2.1c39563d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c46146f373a62f18ef3b",
-    "url": "/JS-Olympics/static/js/main.86c71350.chunk.js"
+    "revision": "456c904646410b9c01f9",
+    "url": "/JS-Olympics/static/js/main.22f976f4.chunk.js"
   },
   {
     "revision": "844a758d721e54e47a8a",

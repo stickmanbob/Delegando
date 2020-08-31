@@ -11,7 +11,7 @@ export default function Footer() {
             {" "}
             <i className="fab fa-github-alt"></i> &nbsp;Github Links
           </h3>
-          <a href="https://github.com/stickmanbob/JS-Olympics" target="_blank">
+          <a href="https://github.com/stickmanbob/Delegando" target="_blank">
             Github Repo
           </a>
 
