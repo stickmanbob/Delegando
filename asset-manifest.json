@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Delegando/static/css/main.a3faa807.chunk.css",
+    "main.css": "/Delegando/static/css/main.6e4f61ba.chunk.css",
     "main.js": "/Delegando/static/js/main.183b2955.chunk.js",
     "main.js.map": "/Delegando/static/js/main.183b2955.chunk.js.map",
     "runtime-main.js": "/Delegando/static/js/runtime-main.8aefdad2.js",
@@ -8,16 +8,16 @@
     "static/js/2.1c39563d.chunk.js": "/Delegando/static/js/2.1c39563d.chunk.js",
     "static/js/2.1c39563d.chunk.js.map": "/Delegando/static/js/2.1c39563d.chunk.js.map",
     "index.html": "/Delegando/index.html",
-    "precache-manifest.2dbed32f55c3a84c2c6eac78a8e8aca9.js": "/Delegando/precache-manifest.2dbed32f55c3a84c2c6eac78a8e8aca9.js",
+    "precache-manifest.a7f64b88f646d884fb52f4231f27f850.js": "/Delegando/precache-manifest.a7f64b88f646d884fb52f4231f27f850.js",
     "service-worker.js": "/Delegando/service-worker.js",
-    "static/css/main.a3faa807.chunk.css.map": "/Delegando/static/css/main.a3faa807.chunk.css.map",
+    "static/css/main.6e4f61ba.chunk.css.map": "/Delegando/static/css/main.6e4f61ba.chunk.css.map",
     "static/js/2.1c39563d.chunk.js.LICENSE.txt": "/Delegando/static/js/2.1c39563d.chunk.js.LICENSE.txt",
     "static/media/delegando.gif": "/Delegando/static/media/delegando.f6152c1d.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.8aefdad2.js",
     "static/js/2.1c39563d.chunk.js",
-    "static/css/main.a3faa807.chunk.css",
+    "static/css/main.6e4f61ba.chunk.css",
     "static/js/main.183b2955.chunk.js"
   ]
 }
