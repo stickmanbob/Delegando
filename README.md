@@ -1,6 +1,6 @@
 # Delegando
 
-## [Live Link](https://stickmanbob.github.io/JS-Olympics/)
+## [Live Link](https://stickmanbob.github.io/Delegando/)
 
 <img src="./src/delegando.gif"/>
 
