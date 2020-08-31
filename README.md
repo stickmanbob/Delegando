@@ -16,22 +16,27 @@ The app was built using React and Redux. Under the contraints of the hackathon, 
 
 ``` Javascript
 	//App.jsx, updates on every Redux state change
-	// ...
 
-	save() {
-		let storage = window.localStorage;
-		
-		//Don't save the store to disk when it is initializing and empty
-    if (this.props.state) {
-      let data = JSON.stringify(this.props.state);
-      storage.setItem("data", data);
+	class App extends React.Component {
+
+		// App is a connected component with prop "state" that contains the entire redux store
+
+		save() {
+			let storage = window.localStorage;
+			
+			//Don't save the store to disk when it is initializing and empty
+			if (this.props.state) {
+				let data = JSON.stringify(this.props.state);
+				storage.setItem("data", data);
+			}
+			
 		}
-		
-  }
 
-  render() {
-		this.save();
-	
+		render() {
+
+			//Save the contents of the redux store to disk on every re-render
+			this.save();
+		
 	///...
 ```
 Local storage data is then loaded as pre-loaded state into Redux on startup.
