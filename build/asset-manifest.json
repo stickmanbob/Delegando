@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/JS-Olympics/static/css/main.a3faa807.chunk.css",
-    "main.js": "/JS-Olympics/static/js/main.22f976f4.chunk.js",
-    "main.js.map": "/JS-Olympics/static/js/main.22f976f4.chunk.js.map",
-    "runtime-main.js": "/JS-Olympics/static/js/runtime-main.92372b77.js",
-    "runtime-main.js.map": "/JS-Olympics/static/js/runtime-main.92372b77.js.map",
-    "static/js/2.1c39563d.chunk.js": "/JS-Olympics/static/js/2.1c39563d.chunk.js",
-    "static/js/2.1c39563d.chunk.js.map": "/JS-Olympics/static/js/2.1c39563d.chunk.js.map",
-    "index.html": "/JS-Olympics/index.html",
-    "precache-manifest.ab292c375b4b8c67cd52938bc0fc9fda.js": "/JS-Olympics/precache-manifest.ab292c375b4b8c67cd52938bc0fc9fda.js",
-    "service-worker.js": "/JS-Olympics/service-worker.js",
-    "static/css/main.a3faa807.chunk.css.map": "/JS-Olympics/static/css/main.a3faa807.chunk.css.map",
-    "static/js/2.1c39563d.chunk.js.LICENSE.txt": "/JS-Olympics/static/js/2.1c39563d.chunk.js.LICENSE.txt",
-    "static/media/delegando.gif": "/JS-Olympics/static/media/delegando.f6152c1d.gif"
+    "main.css": "/Delegando/static/css/main.a3faa807.chunk.css",
+    "main.js": "/Delegando/static/js/main.183b2955.chunk.js",
+    "main.js.map": "/Delegando/static/js/main.183b2955.chunk.js.map",
+    "runtime-main.js": "/Delegando/static/js/runtime-main.8aefdad2.js",
+    "runtime-main.js.map": "/Delegando/static/js/runtime-main.8aefdad2.js.map",
+    "static/js/2.1c39563d.chunk.js": "/Delegando/static/js/2.1c39563d.chunk.js",
+    "static/js/2.1c39563d.chunk.js.map": "/Delegando/static/js/2.1c39563d.chunk.js.map",
+    "index.html": "/Delegando/index.html",
+    "precache-manifest.5ebd7777fe522b6b05ea87522462b0e2.js": "/Delegando/precache-manifest.5ebd7777fe522b6b05ea87522462b0e2.js",
+    "service-worker.js": "/Delegando/service-worker.js",
+    "static/css/main.a3faa807.chunk.css.map": "/Delegando/static/css/main.a3faa807.chunk.css.map",
+    "static/js/2.1c39563d.chunk.js.LICENSE.txt": "/Delegando/static/js/2.1c39563d.chunk.js.LICENSE.txt",
+    "static/media/delegando.gif": "/Delegando/static/media/delegando.f6152c1d.gif"
   },
   "entrypoints": [
-    "static/js/runtime-main.92372b77.js",
+    "static/js/runtime-main.8aefdad2.js",
     "static/js/2.1c39563d.chunk.js",
     "static/css/main.a3faa807.chunk.css",
-    "static/js/main.22f976f4.chunk.js"
+    "static/js/main.183b2955.chunk.js"
   ]
 }

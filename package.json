@@ -14,7 +14,7 @@
   },
   "mintbean": {
     "template": "react-gh-pages",
-    "homepage": "https://stickmanbob.github.io/JS-Olympics/",
+    "homepage": "https://stickmanbob.github.io/Delegando/",
     "scripts": {
       "deploy": "npm run deploy",
       "develop": "npm run start"
