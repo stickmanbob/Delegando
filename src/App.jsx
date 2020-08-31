@@ -41,7 +41,7 @@ class App extends React.Component {
             <Landing />
           </Route>
         </Switch>
-        <Footer />
+        
       </HashRouter>
     );
   }
