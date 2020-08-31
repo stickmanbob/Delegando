@@ -3,8 +3,21 @@
   display: flex;
   min-height: 40px;
   font-size: 25px;
-  justify-content: space-around;
+	justify-content: space-around;
+	
+	
 }
+
+@media (max-width: 400px){
+	.footer{
+		display:none; 
+	}
+
+	#about{
+		display: none;
+	} 
+		
+	}
 
 .githubs {
   display: flex;
