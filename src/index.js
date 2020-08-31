@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	let storage = window.localStorage;
 	let state = JSON.parse(storage.getItem('data'));
 	// let state; 
-	console.log(state); 
+	
 	if(!state){
 		state = {
 			entities: {
@@ -60,9 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
   //Create a store with the preloaded state
   let store = configureStore(state);
 
-  //TEST LINE
-    window.store = store;
-  //
+  // //TEST LINE
+  //   window.store = store;
+  // //
 
   ReactDOM.render(
     <React.StrictMode>

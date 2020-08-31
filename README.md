@@ -1,68 +1,117 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Delegando
 
-## Available Scripts
+## [Live Link](https://stickmanbob.github.io/JS-Olympics/)
 
-In the project directory, you can run:
+<img src="./src/delegando.gif"/>
 
-### `yarn start`
+## About
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Delegando is a lightweight, virtual kanban board that runs in your bowser. All data is saved to your browser's local storage, so there are no accounts or server lag. It is purely a client side application.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Delegando was built in three days during the Mintbean.io Javascript Olympics Hackathon by Ajay Rajamani, Daniel Yee, and Daniel Chau. We hope you enjoy using Delegando!
 
-### `yarn test`
+## Implementation
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app was built using React and Redux. Under the contraints of the hackathon, no data could be stored on a back end database of any kind. In order to persist user data, we utilized Redux as a de-facto front end "database", and saved the contents of the redux store to local storage at every update.
 
-### `yarn build`
+``` Javascript
+	//App.jsx, updates on every Redux state change
+	// ...
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+	save() {
+		let storage = window.localStorage;
+		
+		//Don't save the store to disk when it is initializing and empty
+    if (this.props.state) {
+      let data = JSON.stringify(this.props.state);
+      storage.setItem("data", data);
+		}
+		
+  }
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+  render() {
+		this.save();
+	
+	///...
+```
+Local storage data is then loaded as pre-loaded state into Redux on startup.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+``` javascript
+	// index.js
+	
+	// ...
 
-### `yarn eject`
+	// Initialize state
+	let storage = window.localStorage;
+	let state = JSON.parse(storage.getItem('data'));
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+	//Create a Redux store with the preloaded state
+	let store = configureStore(state);
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+	//Render the App
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+	ReactDOM.render(
+    <React.StrictMode>
+			<Provider store={store}>
+      	<App />
+			</Provider>
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+	
+	// ...
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
 
-## Learn More
+If you wish to clear your local board data, simply run ``` localStorage.data = null ``` in the developer console.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In order to give objects (boards, columns, and notes) unique object id's, we stored a ```nextId ``` key in each slice of Redux state. That key is accessed whenever a new object of that type is created and then incremented in a Redux action. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+``` javascript
+	//Sample Redux state:
+		entities:{
+			boards: {1: {…}, nextId: 2}
+			columns:{
+				1: {title: "To Do", notes: Array(0), id: 1}
+				2: {title: "In Progress", notes: Array(0), id: 2}
+				3: {title: "Done", notes: Array(0), id: 3}
+				4: {title: "Staged", notes: Array(0), id: 4},
+				nextId: 5
+			}
+	//...
+		
+	//Notice the use of "nextId" keys to denote the next availible object Id
 
-### Code Splitting
+	//Whenever a new object is created, that key is accessed by the associated reducer
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+		//columnsReducer.js
 
-### Analyzing the Bundle Size
+		export default function columnsReducer(state = {}, action) {
+			
+			Object.freeze(state);
+			let column;
+			let newColumn; 
+			let newState; 
+			
+			switch (action.type) {
+				case CREATE_COLUMN:
+					// First, let's get the next availible object id
+					let id = state.nextId;
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+					// create our new column object
+					column = Object.assign({}, action.column, { id: id });
 
-### Making a Progressive Web App
+					//Duplicate the current state and add our new column object
+					return Object.assign(
+						{},
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+						state,
 
-### Advanced Configuration
+						{ [id]: column }, // Our new object, namespaced under its new id
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+						{ nextId: id + 1 } //Increment the next availible id by 1
+					); 
+				
+		// ...
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
