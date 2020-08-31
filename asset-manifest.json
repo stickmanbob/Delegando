@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/JS-Olympics/static/css/main.bf32fc0a.chunk.css",
+    "main.css": "/JS-Olympics/static/css/main.7c061dd5.chunk.css",
     "main.js": "/JS-Olympics/static/js/main.86c71350.chunk.js",
     "main.js.map": "/JS-Olympics/static/js/main.86c71350.chunk.js.map",
     "runtime-main.js": "/JS-Olympics/static/js/runtime-main.92372b77.js",
@@ -8,16 +8,16 @@
     "static/js/2.1c39563d.chunk.js": "/JS-Olympics/static/js/2.1c39563d.chunk.js",
     "static/js/2.1c39563d.chunk.js.map": "/JS-Olympics/static/js/2.1c39563d.chunk.js.map",
     "index.html": "/JS-Olympics/index.html",
-    "precache-manifest.8d285b09fd0f3780dd7ef00af0a1ea91.js": "/JS-Olympics/precache-manifest.8d285b09fd0f3780dd7ef00af0a1ea91.js",
+    "precache-manifest.dcb19aee78a3d54976692c84829616bb.js": "/JS-Olympics/precache-manifest.dcb19aee78a3d54976692c84829616bb.js",
     "service-worker.js": "/JS-Olympics/service-worker.js",
-    "static/css/main.bf32fc0a.chunk.css.map": "/JS-Olympics/static/css/main.bf32fc0a.chunk.css.map",
+    "static/css/main.7c061dd5.chunk.css.map": "/JS-Olympics/static/css/main.7c061dd5.chunk.css.map",
     "static/js/2.1c39563d.chunk.js.LICENSE.txt": "/JS-Olympics/static/js/2.1c39563d.chunk.js.LICENSE.txt",
     "static/media/delegando.gif": "/JS-Olympics/static/media/delegando.f6152c1d.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.92372b77.js",
     "static/js/2.1c39563d.chunk.js",
-    "static/css/main.bf32fc0a.chunk.css",
+    "static/css/main.7c061dd5.chunk.css",
     "static/js/main.86c71350.chunk.js"
   ]
 }
