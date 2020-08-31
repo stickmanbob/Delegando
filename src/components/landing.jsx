@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Footer from "../components/footer";
+
 
 export default function Landing() {
   return (
@@ -40,6 +42,7 @@ export default function Landing() {
           </p>
         </div>
       </article>
+      <Footer />
     </section>
   );
 }
