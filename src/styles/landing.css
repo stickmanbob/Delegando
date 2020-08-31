@@ -100,3 +100,7 @@
 .nav-bar a:hover {
   color: #9eb7e5;
 }
+
+.landing {
+  overflow-x: hidden;
+}

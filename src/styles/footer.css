@@ -1,0 +1,52 @@
+.footer {
+  padding-top: 20px;
+  display: flex;
+  min-height: 40px;
+  font-size: 25px;
+  justify-content: space-around;
+}
+
+.githubs {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  width: 40%;
+}
+
+.githubs > h3 {
+  position: relative;
+  right: 33px;
+  font-size: 25px;
+  padding-bottom: 10px;
+}
+
+.githubs > a:hover {
+  color: grey;
+}
+
+.linkedins {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  width: 30%;
+}
+
+.linkedins > h3 {
+  position: relative;
+  right: 33px;
+  font-size: 25px;
+  padding-bottom: 10px;
+}
+
+.linkedins > a:hover {
+  color: grey;
+}
+
+#about {
+  text-align: center;
+  font-size: 30px;
+  padding-top: 10px;
+  position: relative;
+  left: 180px;
+  width: 80%;
+}
