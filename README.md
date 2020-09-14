@@ -27,7 +27,7 @@ The app was built using React and Redux. Under the contraints of the hackathon, 
 			//Don't save the store to disk when it is initializing and empty
 			if (this.props.state) {
 				let data = JSON.stringify(this.props.state);
-				storage.setItem("data", data);
+				storage.setItem("delegandoData", data);
 			}
 			
 		}
@@ -48,7 +48,7 @@ Local storage data is then loaded as pre-loaded state into Redux on startup.
 
 	// Initialize state
 	let storage = window.localStorage;
-	let state = JSON.parse(storage.getItem('data'));
+	let state = JSON.parse(storage.getItem('delegandoData'));
 
 	//Create a Redux store with the preloaded state
 	let store = configureStore(state);
@@ -68,7 +68,7 @@ Local storage data is then loaded as pre-loaded state into Redux on startup.
 
 ```
 
-If you wish to clear your local board data, simply run ``` localStorage.data = null ``` in the developer console.
+If you wish to clear your local board data, simply run ``` localStorage.clear() ``` in the developer console.
 
 In order to give objects (boards, columns, and notes) unique object id's, we stored a ```nextId ``` key in each slice of Redux state. That key is accessed whenever a new object of that type is created and then incremented in a Redux action. 
 

@@ -4,7 +4,7 @@ import Column from "./column";
 import { createColumn, updateColumn } from "../actions/column_actions";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { updateBoard } from "../actions/board_actions";
-import { useParams, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class Board extends React.Component {
   constructor(props) {

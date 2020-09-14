@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
  
 	// Initialize state
 	let storage = window.localStorage;
-	let state = JSON.parse(storage.getItem('data'));
+	let state = JSON.parse(storage.getItem('delegandoData'));
 	// let state; 
 	
 	if(!state){

@@ -6,7 +6,7 @@ import { HashRouter, Switch, Route } from "react-router-dom";
 import BoardIndex from "./components/board_index";
 import Landing from "./components/landing";
 import NavBar from "./components/nav-bar";
-import Footer from "./components/footer";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class App extends React.Component {
     let storage = window.localStorage;
     if (this.props.state) {
       let data = JSON.stringify(this.props.state);
-      storage.setItem("data", data);
+      storage.setItem("delegandoData", data);
     }
   }
 

@@ -15,7 +15,7 @@ class SaveButton extends React.Component{
 		e.preventDefault();
 		let storage = window.localStorage;
 		let data = JSON.stringify(this.props.state);
-		storage.setItem("data", data);
+		storage.setItem("delegandoData", data);
 	}
 
 
